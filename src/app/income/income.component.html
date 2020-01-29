@@ -1,0 +1,18 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  
+  <label>
+    <input type="text" placeholder="incomeName" name="incomeName" ngModel required #name="ngModel">
+    <input type="date" name="incomeDate" ngModel required #date="ngModel">
+    <input type="number" placeholder="incomeAmount" name="incomeAmount" ngModel required #ammount="ngModel">
+  </label>
+
+  <button>Submit</button>
+</form>
+
+<div *ngFor="let income of incomes">
+
+ Name : {{income.incomeName}}
+ Date : {{income.incomeDate}}
+ Amount : {{income.incomeAmount}}
+ <br>
+ </div>

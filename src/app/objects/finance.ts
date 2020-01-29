@@ -5,6 +5,6 @@ export class Finance {
   date: string;
   amount: number;
 
-  bill : Bill;
-  income : Income;
+  bill : Bill[] = [];
+  income : Income[] = [];
 }

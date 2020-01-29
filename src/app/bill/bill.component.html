@@ -9,4 +9,10 @@
   <button>Submit</button>
 </form>
 
- ll : {{newBill.billName}}
+<div *ngFor="let bill of bills">
+
+ Name : {{bill.billName}}
+ Date : {{bill.billDate}}
+ Amount : {{bill.billAmount}}
+ <br>
+ </div>

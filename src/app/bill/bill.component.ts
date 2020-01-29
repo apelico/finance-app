@@ -9,9 +9,14 @@ import { Bill } from '../objects/bill';
 })
 export class BillComponent implements OnInit {
 
-  bills : Bill[] = [];
+  bills : Bill[] = [
+  ];
 
   constructor() {
+    var bill = new Bill();
+    bill.customBill();
+    this.bills.push(bill);
+    console.log(this.bills);
    }
 
   ngOnInit() {

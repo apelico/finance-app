@@ -1,0 +1,12 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  
+  <label>
+    <input type="text" placeholder="billName" name="billName" ngModel required #first="ngModel">
+    <input type="date" name="billDate" ngModel required #first="ngModel">
+    <input type="number" placeholder="billAmount" name="billAmount" ngModel required #first="ngModel">
+  </label>
+
+  <button>Submit</button>
+</form>
+
+ ll : {{newBill.billName}}

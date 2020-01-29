@@ -14,9 +14,12 @@ export class BillComponent implements OnInit {
 
   constructor() {
     var bill = new Bill();
-    bill.customBill();
+    bill.createBill('car','02-27-2020',350);
     this.bills.push(bill);
-    console.log(this.bills);
+
+    var bill2 = new Bill();
+    bill2.createBill('car2','02-23-2020',500);
+    this.bills.push(bill2);
    }
 
   ngOnInit() {
@@ -29,8 +32,6 @@ export class BillComponent implements OnInit {
     bill.billAmount = f.value['billAmount'];
 
     this.bills.push(bill);
-
-    console.log(this.bills);
   }
 
 }

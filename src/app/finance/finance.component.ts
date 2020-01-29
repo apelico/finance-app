@@ -23,11 +23,19 @@ export class FinanceComponent implements OnInit {
       }else{
         finance.amount = this.dailyFinance[i-1].amount;
       }
-          var d = new Date();
-          d.setDate(d.getDate() + i);
-          finance.date = (d.getUTCMonth() + 1) + '-' + d.getUTCDate() + - + d.getUTCFullYear();
+          finance.date = this.getDate(i);
           this.dailyFinance.push(finance);
     }
+  }
+
+  getDate(day : number){
+    var d = new Date();
+    d.setDate(d.getDate() + day);
+    var newDay = d.getDate();
+    if(newDay <= 9){
+      return (d.getUTCMonth() + 1) + '-' + '0' + newDay + '-' + d.getUTCFullYear();
+    }
+    return (d.getUTCMonth() + 1) + '-' + newDay + '-' + d.getUTCFullYear();
   }
 
   calculate(){

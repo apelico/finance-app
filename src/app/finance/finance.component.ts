@@ -9,16 +9,28 @@ import { Finance } from '../objects/finance';
 })
 export class FinanceComponent implements OnInit {
 
-    dailyFinance : Finance[] = [];
+  dailyFinance : Finance[] = [];
+  currentCash : number = 300;
 
   constructor() {
-    var d = new Finance();
-    d.date = '02-02-2020';
-    d.amount = 300;
-    this.dailyFinance.push(d);
    }
 
   ngOnInit() {
+    for(var i = 0; i < 30; i++){
+      var finance = new Finance();
+      if(i == 0) {
+        finance.amount = this.currentCash;
+      }else{
+        finance.amount = this.dailyFinance[i-1].amount;
+      }
+          var d = new Date();
+          d.setDate(d.getDate() + i);
+          finance.date = (d.getUTCMonth() + 1) + '-' + d.getUTCDate() + - + d.getUTCFullYear();
+          this.dailyFinance.push(finance);
+    }
+  }
+
+  calculate(){
   }
 
 }

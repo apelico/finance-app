@@ -15,7 +15,6 @@ export class IncomeComponent implements OnInit {
     var income = new Income();
     income.customIncome();
     this.incomes.push(income);
-    console.log(this.incomes);
    }
 
   ngOnInit() {
@@ -28,8 +27,6 @@ export class IncomeComponent implements OnInit {
     income.incomeAmount = f.value['billAmount'];
 
     this.incomes.push(income);
-
-    console.log(this.incomes);
   }
 
 }

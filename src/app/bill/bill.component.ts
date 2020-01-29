@@ -9,17 +9,23 @@ import { Bill } from '../objects/bill';
 })
 export class BillComponent implements OnInit {
 
-  newBill : Bill;
+  bills : Bill[] = [];
 
   constructor() {
-    this.newBill = new Bill();
    }
 
   ngOnInit() {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
+    var bill = new Bill();
+    bill.billName = f.value['billName'];
+    bill.billDate = f.value['billDate'];
+    bill.billAmount = f.value['billAmount'];
+
+    this.bills.push(bill);
+
+    console.log(this.bills);
   }
 
 }

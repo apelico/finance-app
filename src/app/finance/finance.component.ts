@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Finance } from '../objects/finance';
 import { Bill } from '../objects/bill';
+import { Income } from '../objects/income';
 
 @Component({
   selector: 'app-finance',
@@ -29,8 +30,12 @@ export class FinanceComponent implements OnInit {
     }
 
     var bill = new Bill();
-      bill.createBill('car','2-07-2020',350);
+      bill.createBill('car','02-07-2020',350);
       this.addBill(bill);
+
+    var income = new Income();
+      income.customIncome();
+      this.addIncome(income);
   }
 
   updateList(){
@@ -46,6 +51,12 @@ export class FinanceComponent implements OnInit {
           this.dailyFinance[i].amount -= this.dailyFinance[i].bill[j].billAmount;
         }
       }
+
+      if(this.dailyFinance[i].income.length > 0){
+        for(var j = 0; j < this.dailyFinance[i].income.length;j++){
+          this.dailyFinance[i].amount += this.dailyFinance[i].income[j].incomeAmount;
+        }
+      }
     }
   }
 
@@ -59,14 +70,23 @@ export class FinanceComponent implements OnInit {
     this.updateList();
   }
 
+  addIncome(income : Income){
+    for(var i = 0; i < 30; i++){
+      if(this.dailyFinance[i].date == income.incomeDate){
+        this.dailyFinance[i].income.push(income);
+        break;
+      }
+    }
+    this.updateList();
+  }
+
+
   getDate(day : number){
     var d = new Date();
     d.setDate(d.getDate() + day);
-    var newDay = d.getDate();
-    if(newDay <= 9){
-      return (d.getUTCMonth() + 1) + '-' + '0' + newDay + '-' + d.getUTCFullYear();
-    }
-    return (d.getUTCMonth() + 1) + '-' + newDay + '-' + d.getUTCFullYear();
+    var newDay = d.getDate().toString().padStart(2,0);
+    var newMonth = (d.getMonth() + 1).toString().padStart(2,0);
+    return (newMonth) + '-' + newDay + '-' + d.getUTCFullYear();
   }
 
   calculate(){

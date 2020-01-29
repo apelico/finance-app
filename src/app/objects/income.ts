@@ -7,7 +7,7 @@ export class Income {
 
   public customIncome(){
     this.incomeName = 'austin';
-    this.incomeDate = '02-22-2019';
+    this.incomeDate = '02-22-2020';
     this.incomeAmount = 750;
   }
 

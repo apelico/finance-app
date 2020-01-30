@@ -1,14 +1,16 @@
 <app-income></app-income>
+<hr>
 <app-bill></app-bill>
+<hr>
 
 <p>
-finance
-<input type="button" value='refresh' (click)="updateList()">
+	finance
+	<input type="button" value='refresh' (click)="updateList()">
 </p> <br>
 
-<div *ngFor="let daily of dailyFinance">
+	<div *ngFor="let daily of dailyFinance">
 
- Date : {{daily.date}}
- Amount : {{daily.amount}}
- <br>
+		Date : {{daily.date}}
+		Amount : {{daily.amount}}
+		<br>
  </div>

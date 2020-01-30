@@ -10,21 +10,21 @@ import { FinancingService } from '../services/financing.service';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
-  bill : Bill = new Bill();
+  bills : Bill[] = [];
 
   constructor(private financing : FinancingService) {
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {  }
 
   onSubmit(f: NgForm) {
-    this.bill.billName = f.value['billName'];
-    this.bill.billDate = f.value['billDate'];
-    this.bill.billAmount = f.value['billAmount'];
+    var bill : Bill = new Bill();
+    bill.billName = f.value['billName'];
+    bill.billDate = f.value['billDate'];
+    bill.billAmount = f.value['billAmount'];
 
-    this.financing.createBill(this.bill);
+    this.financing.createBill(bill);
+    this.bills.push(bill);
   }
 
 }

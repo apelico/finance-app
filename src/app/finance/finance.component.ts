@@ -13,8 +13,8 @@ import { FinancingService } from '../services/financing.service';
 })
 export class FinanceComponent implements OnInit {
 
-  incomes: Income[] = [];
-  bills: Bill[] = [];
+  incomes: Income[];
+  bills: Bill[];
 
   dailyFinance : Finance[] = [];
   currentCash : number = 300;
@@ -24,6 +24,11 @@ export class FinanceComponent implements OnInit {
 
 
   ngOnInit() {
+    this.createList();
+  }
+
+  createList(){
+    this.dailyFinance = [];
     for(var i = 0; i < 30; i++){
       var finance = new Finance();
       if(i == 0) {
@@ -34,14 +39,12 @@ export class FinanceComponent implements OnInit {
           finance.date = this.getDate(i);
           this.dailyFinance.push(finance);
     }
-
-    var income = new Income();
-      income.customIncome();
-      this.addIncome(income);
   }
 
   updateList(){
+    this.createList();
     this.updateBills();
+    this.updateIncomes();
     
     for(var i = 0; i < 30; i++){
       if(i == 0) {
@@ -65,6 +68,7 @@ export class FinanceComponent implements OnInit {
   }
 
   updateBills(){
+    this.bills = [];
     this.bills = this.financing.getBills();
 
     for(var i = 0; i < 30; i++){
@@ -74,18 +78,19 @@ export class FinanceComponent implements OnInit {
         }
       }
     }
-
-    console.log(this.bills);
   }
 
-  addIncome(income : Income){
+  updateIncomes(){
+    this.incomes = [];
+    this.incomes = this.financing.getIncomes();
+
     for(var i = 0; i < 30; i++){
-      if(this.dailyFinance[i].date == income.incomeDate){
-        this.dailyFinance[i].income.push(income);
-        break;
+      for(var j = 0; j < this.incomes.length; j++){
+        if(this.dailyFinance[i].date == this.incomes[j].incomeDate){
+          this.dailyFinance[i].income.push(this.incomes[j]);
+        }
       }
     }
-    this.updateList();
   }
 
 

@@ -10,7 +10,7 @@ import { FinancingService } from '../services/financing.service';
   styleUrls: ['./income.component.css']
 })
 export class IncomeComponent implements OnInit {
-  income : Income = new Income();
+  incomes : Income[] = [];
 
   constructor(private financing : FinancingService) {}
 
@@ -18,12 +18,14 @@ export class IncomeComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    var income = new Income();
-    income.incomeName = f.value['billName'];
-    income.incomeDate = f.value['billDate'];
-    income.incomeAmount = f.value['billAmount'];
+    var income : Income = new Income();
+    income.incomeName = f.value['incomeName'];
+    income.incomeDate = f.value['incomeDate'];
+    income.incomeAmount = f.value['incomeAmount'];
 
+    this.financing.createIncome(income);
     this.incomes.push(income);
+
   }
 
 }

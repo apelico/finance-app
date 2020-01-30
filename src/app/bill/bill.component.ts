@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Bill } from '../objects/bill';
-import { BillItemComponent } from '../bill-item/bill-item.component.ts';
 
 import { FinancingService } from '../services/financing.service';
 

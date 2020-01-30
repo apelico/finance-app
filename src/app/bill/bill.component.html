@@ -10,9 +10,6 @@
 </form>
 
 <div *ngFor="let bill of bills">
-
- Name : {{bill.billName}}
- Date : {{bill.billDate}}
- Amount : {{bill.billAmount}}
+  <app-bill-item [bill]=bill></app-bill-item>
  <br>
  </div>

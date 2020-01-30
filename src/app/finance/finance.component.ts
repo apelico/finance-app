@@ -24,7 +24,6 @@ export class FinanceComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.bills);
     for(var i = 0; i < 30; i++){
       var finance = new Finance();
       if(i == 0) {
@@ -35,10 +34,6 @@ export class FinanceComponent implements OnInit {
           finance.date = this.getDate(i);
           this.dailyFinance.push(finance);
     }
-
-    var bill = new Bill();
-      bill.createBill('car','02-07-2020',350);
-      this.addBill(bill);
 
     var income = new Income();
       income.customIncome();

@@ -74,6 +74,8 @@ export class FinanceComponent implements OnInit {
         }
       }
     }
+
+    console.log(this.bills);
   }
 
   addIncome(income : Income){
@@ -92,7 +94,7 @@ export class FinanceComponent implements OnInit {
     d.setDate(d.getDate() + day);
     var newDay = d.getDate().toString().padStart(2,0);
     var newMonth = (d.getMonth() + 1).toString().padStart(2,0);
-    return (newMonth) + '-' + newDay + '-' + d.getUTCFullYear();
+    return d.getUTCFullYear() + '-' + (newMonth) + '-' + newDay;
   }
 
 }

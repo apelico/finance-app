@@ -7,6 +7,7 @@ import { Income } from '../objects/income';
 @Injectable()
 export class FinancingService {
   public bills : Bill[] = [];
+  public incomes : Income[] = [];
 
   constructor() { }
 
@@ -16,6 +17,14 @@ export class FinancingService {
 
   getBills(){
     return this.bills;
+  }
+
+  createIncome(income : Income){
+    this.incomes.push(income);
+  }
+
+  getIncomes(){
+    return this.incomes;
   }
 
 }

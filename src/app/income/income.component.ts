@@ -2,20 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Income } from '../objects/income';
 
+import { FinancingService } from '../services/financing.service';
+
 @Component({
   selector: 'app-income',
   templateUrl: './income.component.html',
   styleUrls: ['./income.component.css']
 })
 export class IncomeComponent implements OnInit {
-  incomes : Income[] = [
-  ];
+  income : Income = new Income();
 
-  constructor() {
-    var income = new Income();
-    income.customIncome();
-    this.incomes.push(income);
-   }
+  constructor(private financing : FinancingService) {}
 
   ngOnInit() {
   }

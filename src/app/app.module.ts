@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { FinanceComponent } from './finance/finance.component';
 import { BillComponent } from './bill/bill.component';
 import { IncomeComponent } from './income/income.component';
+import { FinancingService } from './services/financing.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule],
   declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [FinancingService]
 })
 export class AppModule { }

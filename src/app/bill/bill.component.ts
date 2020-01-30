@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Bill } from '../objects/bill';
+import { FinancingService } from '../services/financing.service';
 
 @Component({
   selector: 'app-bill',
@@ -8,9 +9,7 @@ import { Bill } from '../objects/bill';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
-
-  bills : Bill[] = [
-  ];
+  bills : Bill[] = [];
 
   constructor() {
     var bill = new Bill();
@@ -23,6 +22,7 @@ export class BillComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
   onSubmit(f: NgForm) {
@@ -32,6 +32,7 @@ export class BillComponent implements OnInit {
     bill.billAmount = f.value['billAmount'];
 
     this.bills.push(bill);
+    //this.financing.createBill(bill);
   }
 
 }

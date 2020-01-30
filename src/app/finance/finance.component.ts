@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Finance } from '../objects/finance';
 import { Bill } from '../objects/bill';
@@ -11,13 +11,17 @@ import { Income } from '../objects/income';
 })
 export class FinanceComponent implements OnInit {
 
+  incomes: Income[] = [];
+  bills: Bill[] = [];
+
   dailyFinance : Finance[] = [];
   currentCash : number = 300;
 
   constructor() {
-   }
+  }
 
   ngOnInit() {
+    console.log(this.bills);
     for(var i = 0; i < 30; i++){
       var finance = new Finance();
       if(i == 0) {

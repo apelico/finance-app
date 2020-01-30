@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Finance } from '../objects/finance';
 import { Bill } from '../objects/bill';
 import { Income } from '../objects/income';
+
+import { FinancingService } from '../services/financing.service';
 
 @Component({
   selector: 'app-finance',
@@ -17,8 +19,9 @@ export class FinanceComponent implements OnInit {
   dailyFinance : Finance[] = [];
   currentCash : number = 300;
 
-  constructor() {
-  }
+  constructor(private financing : FinancingService) {}
+
+
 
   ngOnInit() {
     console.log(this.bills);
@@ -43,6 +46,8 @@ export class FinanceComponent implements OnInit {
   }
 
   updateList(){
+    this.updateBills();
+    
     for(var i = 0; i < 30; i++){
       if(i == 0) {
         this.dailyFinance[i].amount = this.currentCash;
@@ -64,14 +69,16 @@ export class FinanceComponent implements OnInit {
     }
   }
 
-  addBill(bill : Bill){
+  updateBills(){
+    this.bills = this.financing.getBills();
+
     for(var i = 0; i < 30; i++){
-      if(this.dailyFinance[i].date == bill.billDate){
-        this.dailyFinance[i].bill.push(bill);
-        break;
+      for(var j = 0; j < this.bills.length; j++){
+        if(this.dailyFinance[i].date == this.bills[j].billDate){
+          this.dailyFinance[i].bill.push(this.bills[j]);
+        }
       }
     }
-    this.updateList();
   }
 
   addIncome(income : Income){
@@ -91,9 +98,6 @@ export class FinanceComponent implements OnInit {
     var newDay = d.getDate().toString().padStart(2,0);
     var newMonth = (d.getMonth() + 1).toString().padStart(2,0);
     return (newMonth) + '-' + newDay + '-' + d.getUTCFullYear();
-  }
-
-  calculate(){
   }
 
 }

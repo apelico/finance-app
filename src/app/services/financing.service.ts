@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 import { Bill } from '../objects/bill';
 import { Income } from '../objects/income';
 
@@ -11,7 +12,10 @@ export class FinancingService {
 
   createBill(bill : Bill){
     this.bills.push(bill);
-    console.log(this.bills);
+  }
+
+  getBills(){
+    return this.bills;
   }
 
 }

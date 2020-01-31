@@ -12,17 +12,16 @@
 	<div *ngFor="let daily of dailyFinance">
     <ul>
       <li>Date : {{daily.date}}</li>
-      <li><a style="color:green">Up : {{daily.up}}</a></li>
-      <li><a style="color:red">Down : {{daily.down}}</a></li>
+      <li><a style="color:green">Up : ${{daily.up}}</a></li>
+      <li><a style="color:red">Down : ${{daily.down}}</a></li>
 
       <div *ngIf='daily.up >= daily.down'>
-        <li style="color:green">Total : {{daily.amount}}</li>
+        <li style="color:green">Total : ${{daily.amount}}</li>
       </div>
 
       <div *ngIf='daily.up < daily.down'>
-        <li style="color:red">Total : {{daily.amount}}</li>
+        <li style="color:red">Total : ${{daily.amount}}</li>
       </div>
-
     </ul>
 		<br>
  </div>

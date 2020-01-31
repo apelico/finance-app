@@ -9,8 +9,11 @@
 </p> <br>
 
 	<div *ngFor="let daily of dailyFinance">
-
-		Date : {{daily.date}}
-		Amount : {{daily.amount}}
+    <ul>
+      <li>Date : {{daily.date}}</li>
+      <li><a style="color:green">Up : {{daily.up}}</a></li>
+      <li><a style="color:red">Down : {{daily.down}}</a></li>
+      <li>Total : {{daily.amount}}</li>
+    </ul>
 		<br>
  </div>

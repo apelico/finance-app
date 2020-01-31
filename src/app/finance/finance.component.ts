@@ -75,6 +75,7 @@ export class FinanceComponent implements OnInit {
       for(var j = 0; j < this.bills.length; j++){
         if(this.dailyFinance[i].date == this.bills[j].billDate){
           this.dailyFinance[i].bill.push(this.bills[j]);
+          this.dailyFinance[i].down += this.bills[j].billAmount;
         }
       }
     }
@@ -88,6 +89,7 @@ export class FinanceComponent implements OnInit {
       for(var j = 0; j < this.incomes.length; j++){
         if(this.dailyFinance[i].date == this.incomes[j].incomeDate){
           this.dailyFinance[i].income.push(this.incomes[j]);
+          this.dailyFinance[i].up += this.incomes[j].incomeAmount;
         }
       }
     }

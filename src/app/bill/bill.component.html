@@ -1,7 +1,7 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
   <input type="text" placeholder="billName" name="billName" ngModel required #name="ngModel">
-  <input type="date" name="billDate" ngModel required>
-  <input type="number" placeholder="billAmount" name="billAmount" ngModel required>
+  <input type="date" name="billDate" ngModel required #date="ngModel">
+  <input type="number" placeholder="billAmount" name="billAmount" ngModel required #amount="ngModel">
 
   <button>Submit</button>
 </form>

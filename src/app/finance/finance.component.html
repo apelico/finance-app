@@ -3,9 +3,11 @@
 <app-bill></app-bill>
 <hr>
 
-<p>
-	<input type="button" value='ReCalculate' (click)="updateList()">
-</p> <br>
+  <input type="button" value='ReCalculate' (click)="updateList()">
+
+	<input type="numbber" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
+  <button (click)="setIncome(income.value)">Set</button>
+<hr>
 
 	<div *ngFor="let daily of dailyFinance">
     <ul>

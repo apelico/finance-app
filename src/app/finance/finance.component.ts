@@ -17,7 +17,7 @@ export class FinanceComponent implements OnInit {
   bills: Bill[];
 
   dailyFinance : Finance[] = [];
-  currentCash : number = 871;
+  currentCash : number = 0;
 
   constructor(private financing : FinancingService) {}
 
@@ -93,6 +93,11 @@ export class FinanceComponent implements OnInit {
         }
       }
     }
+  }
+
+  setIncome(income : number){
+    this.currentCash = income;
+    this.updateList();
   }
 
 

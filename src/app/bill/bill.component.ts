@@ -13,13 +13,6 @@ export class BillComponent implements OnInit {
   bills : Bill[] = [];
 
   constructor(private financing : FinancingService) {
-        var bill : Bill = new Bill();
-          bill.billName = 'car';
-          bill.billDate = '2020-02-12';
-          bill.billAmount = 300;
-
-    this.financing.createBill(bill);
-    this.bills.push(bill);
   }
 
   ngOnInit() {  }

@@ -1,6 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
   <input type="text" placeholder="billName" name="billName" ngModel required #name="ngModel">
-  <input type="date" name="billDate">
+  <input type="date" name="billDate" ngModel required>
   <input type="number" placeholder="billAmount" name="billAmount" ngModel required>
 
   <button>Submit</button>

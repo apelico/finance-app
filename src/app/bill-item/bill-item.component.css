@@ -3,8 +3,14 @@
   padding:5px;
 }
 
+.top{
+  padding:5px;
+  width:300px;
+}
+
 .name{
   text-align: center;
+  float:right;
 }
 
 ul{

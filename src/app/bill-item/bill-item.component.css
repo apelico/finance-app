@@ -1,16 +1,23 @@
-.head{
+.right{
   float:right;
   padding:5px;
+  width:33%;
 }
 
-.top{
+.right input{
+  float:right;
+}
+
+.left{
   padding:5px;
-  width:300px;
+  width:33%;
 }
 
-.name{
+.middle{
   text-align: center;
   float:right;
+  width:33%;
+  font-size:25px;
 }
 
 ul{

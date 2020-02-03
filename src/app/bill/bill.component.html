@@ -6,7 +6,7 @@
   <button>Submit</button>
 </form>
 
-<div *ngFor="let bill of bills">
-  <app-bill-item class='bill-item' [bill]=bill></app-bill-item>
+<div class='bill-item' *ngFor="let bill of bills">
+  <app-bill-item [bill]=bill></app-bill-item>
  <br>
  </div>

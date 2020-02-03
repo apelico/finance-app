@@ -1,27 +1,29 @@
-<app-income></app-income>
-<hr>
-<app-bill></app-bill>
-<hr>
+<div class='container'>
+  <app-income></app-income>
+  <hr>
+  <app-bill></app-bill>
+  <hr>
 
-  <input type="button" value='ReCalculate' (click)="updateList()">
+    <input type="button" value='ReCalculate' (click)="updateList()">
 
-	<input type="number" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
-  <button (click)="setIncome(income.value)">Set</button>
-<hr>
+    <input type="number" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
+    <button (click)="setIncome(income.value)">Set</button>
+  <hr>
 
-	<div *ngFor="let daily of dailyFinance">
-    <ul>
-      <li>Date : {{daily.date}}</li>
-      <li><a style="color:green">Up : ${{daily.up}}</a></li>
-      <li><a style="color:red">Down : ${{daily.down}}</a></li>
+    <div *ngFor="let daily of dailyFinance">
+      <ul>
+        <li>Date : {{daily.date}}</li>
+        <li><a style="color:green">Up : ${{daily.up}}</a></li>
+        <li><a style="color:red">Down : ${{daily.down}}</a></li>
 
-      <div *ngIf='daily.up >= daily.down'>
-        <li style="color:green">Total : ${{daily.amount}}</li>
-      </div>
+        <div *ngIf='daily.up >= daily.down'>
+          <li style="color:green">Total : ${{daily.amount}}</li>
+        </div>
 
-      <div *ngIf='daily.up < daily.down'>
-        <li style="color:red">Total : ${{daily.amount}}</li>
-      </div>
-    </ul>
-		<br>
- </div>
+        <div *ngIf='daily.up < daily.down'>
+          <li style="color:red">Total : ${{daily.amount}}</li>
+        </div>
+      </ul>
+      <br>
+  </div>
+</div>

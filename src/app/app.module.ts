@@ -10,6 +10,7 @@ import { IncomeComponent } from './income/income.component';
 import { FinancingService } from './services/financing.service';
 import { BillItemComponent } from './bill-item/bill-item.component';
 
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule],
   declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent, BillItemComponent],

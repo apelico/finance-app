@@ -27,6 +27,10 @@ export class FinancingService {
     this.incomes.push(income);
   }
 
+  removeIncome(i : number){
+    this.incomes.splice(i, 1);
+  }
+
   getIncomes(){
     return this.incomes;
   }

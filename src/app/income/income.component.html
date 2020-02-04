@@ -7,10 +7,7 @@
   <button>Submit</button>
 </form>
 
-<div *ngFor="let income of incomes">
-
- Name : {{income.incomeName}}
- Date : {{income.incomeDate}}
- Amount : {{income.incomeAmount}}
- <br>
+<div class='income-item' *ngFor="let income of incomes; let i = index">
+    <app-income-item class='income' [id]=i (removeIncomeEvent)="removeIncome($event)" [income]=income></app-income-item>
+    <br>
  </div>

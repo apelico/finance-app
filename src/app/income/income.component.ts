@@ -24,8 +24,13 @@ export class IncomeComponent implements OnInit {
     income.incomeAmount = f.value['incomeAmount'];
 
     this.financing.createIncome(income);
-    this.incomes.push(income);
+    this.incomes = this.financing.getIncomes();
 
+  }
+
+  removeIncome(i : number){
+    this.financing.removeIncome(i);
+    this.incomes = this.financing.getIncomes();
   }
 
 }

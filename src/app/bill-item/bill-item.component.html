@@ -9,10 +9,11 @@
   </div>
 
   <div class='right'>
-    <input type="button" value="X">
+    <input type="button" value="X" (click)='removeBill()'>
   </div>
 </div>
 
 <div class='body'>
   ${{bill.billAmount}}
+  {{bill.id}}
 </div>

@@ -16,6 +16,7 @@ export class BillComponent implements OnInit {
     for(var i = 0; i < 5; i++){
       var b : Bill = new Bill();
       b.customBill();
+      b.id = this.bills.length;
       this.bills.push(b);
       this.financing.createBill(b);
     }
@@ -31,6 +32,11 @@ export class BillComponent implements OnInit {
 
     this.financing.createBill(bill);
     this.bills.push(bill);
+  }
+
+  removeBill(i : number){
+    this.financing.removeBill(i);
+    this.bills = this.financing.getBills();
   }
 
 }

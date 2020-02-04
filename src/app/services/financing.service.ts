@@ -15,6 +15,10 @@ export class FinancingService {
     this.bills.push(bill);
   }
 
+  removeBill(i : number){
+    this.bills.splice(i, 1);
+  }
+
   getBills(){
     return this.bills;
   }

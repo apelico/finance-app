@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Bill } from '../objects/bill';
 
 @Component({
@@ -7,11 +7,16 @@ import { Bill } from '../objects/bill';
   styleUrls: ['./bill-item.component.css']
 })
 export class BillItemComponent implements OnInit {
-  @Input() id : Number;
   @Input() bill : Bill;
+  @Output() removeBillEvent = new EventEmitter<number>();
+  
 
   constructor() { }
 
   ngOnInit() {}
+
+  removeBill(){
+    this.removeBillEvent.emit(this.bill.id);
+  }
 
 }

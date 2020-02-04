@@ -1,32 +1,27 @@
 .head{
-  display: inline-flex;
-  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
   height:30px;
 }
 
-.right{
-  display: flex;
-  padding:5px;
-  float:right;
-  width:33%;
+.middle{
+  font-size: 20px;
+  text-align:center;
 }
 
 .left{
-  display: flex;
-  padding:5px;
-  float:left;
-  width:33%;
+  padding-left: 5px;
+  padding-top:5px;
 }
 
-.middle{
-  display: flex;
-  text-align: center;
-  font-size:25px;
-  width:33%;
+.right{
+  padding-right: 5px;
+  padding-top:5px;
 }
 
 .body{
-  display:inline;
+  text-align: center;
 }
 
 input{
@@ -35,19 +30,4 @@ input{
   background-color: red;
   font-size: 15px;
   font-weight:bold;
-  float:right;
-  right: 0;
-}
-
-ul{
-  list-style-type: none;
-  width: 100%;
-  margin:0;
-  height:30px;
-  font-size: 20px;
-}
-li{
-  float: left;
-  padding-right:10px;
-  padding-top: 10px;
 }

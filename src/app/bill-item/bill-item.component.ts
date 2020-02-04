@@ -7,6 +7,7 @@ import { Bill } from '../objects/bill';
   styleUrls: ['./bill-item.component.css']
 })
 export class BillItemComponent implements OnInit {
+  @Input() id : Number;
   @Input() bill : Bill;
 
   constructor() { }

@@ -1,13 +1,18 @@
-<div class='right'>
-  <input type="button" value="X">
+<div class='head'>
+
+  <div class='left'>
+    {{bill.billDate}}
+  </div>
+
+  <div class='middle'>
+      {{bill.billName}}
+  </div>
+
+  <div class='right'>
+    <input type="button" value="X">
+  </div>
 </div>
 
-<div class='middle'>
-    {{bill.billName}}
-</div>
-
-<div class='left'>
-  {{bill.billDate}}
-  <br>
+<div class='body'>
   Amount : {{bill.billAmount}}
 </div>

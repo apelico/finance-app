@@ -1,23 +1,42 @@
+.head{
+  display: inline-flex;
+  width: 400px;
+  height:30px;
+}
+
 .right{
-  float:right;
+  display: flex;
   padding:5px;
+  float:right;
   width:33%;
 }
 
-.right input{
-  float:right;
-}
-
 .left{
+  display: flex;
   padding:5px;
+  float:left;
   width:33%;
 }
 
 .middle{
+  display: flex;
   text-align: center;
-  float:right;
-  width:33%;
   font-size:25px;
+  width:33%;
+}
+
+.body{
+  display:inline;
+}
+
+input{
+  border-radius: 6px;
+  color:black;
+  background-color: red;
+  font-size: 15px;
+  font-weight:bold;
+  float:right;
+  right: 0;
 }
 
 ul{

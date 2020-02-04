@@ -8,6 +8,7 @@ import { Bill } from '../objects/bill';
 })
 export class BillItemComponent implements OnInit {
   @Input() bill : Bill;
+  @Input() id : number;
   @Output() removeBillEvent = new EventEmitter<number>();
   
 
@@ -16,7 +17,7 @@ export class BillItemComponent implements OnInit {
   ngOnInit() {}
 
   removeBill(){
-    this.removeBillEvent.emit(this.bill.id);
+    this.removeBillEvent.emit(this.id);
   }
 
 }

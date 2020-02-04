@@ -13,7 +13,7 @@ export class BillItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    console.log(this.id);
   }
 
 }

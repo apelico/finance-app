@@ -1,0 +1,6 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  border: solid black 1px;
+}

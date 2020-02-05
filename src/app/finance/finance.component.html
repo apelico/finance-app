@@ -10,8 +10,7 @@
     <button (click)="setIncome(income.value)">Set</button>
   <hr>
 
-    <div *ngFor="let daily of dailyFinance">
+    <div class='day' *ngFor="let daily of dailyFinance">
       <app-day-item [finance]=daily></app-day-item>
-      <br>
   </div>
 </div>

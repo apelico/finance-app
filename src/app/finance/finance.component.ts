@@ -12,7 +12,6 @@ import { FinancingService } from '../services/financing.service';
   styleUrls: ['./finance.component.css']
 })
 export class FinanceComponent implements OnInit {
-
   incomes: Income[];
   bills: Bill[];
 

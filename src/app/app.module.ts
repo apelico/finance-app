@@ -13,7 +13,7 @@ import { IncomeItemComponent } from './income-item/income-item.component';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
   declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent, BillItemComponent, IncomeItemComponent],
   bootstrap:    [ AppComponent ],
   providers: [FinancingService]

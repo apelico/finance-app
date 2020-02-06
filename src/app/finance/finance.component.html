@@ -1,8 +1,5 @@
 <div class='container'>
-    <input type="button" value='ReCalculate' (click)="updateList()">
-
-    <input type="number" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
-    <button (click)="setIncome(income.value)">Set</button>
+    <input type="number" (keyup)="updateIncome(income.value)" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
   <hr>
 
     <div class='day' *ngFor="let daily of dailyFinance">

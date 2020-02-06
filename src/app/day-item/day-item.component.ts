@@ -3,6 +3,7 @@ import { Finance } from '../objects/finance';
 
 import {NgForm} from '@angular/forms';
 import { Bill } from '../objects/bill';
+import { Income } from '../objects/income';
 
 import { FinancingService } from '../services/financing.service';
 
@@ -21,10 +22,21 @@ export class DayItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  addBill() {
     var bill : Bill = new Bill();
     bill.billDate=this.finance.date;
     this.finance.bill.push(bill);
+  }
+
+  addIncome(){
+    var income : Income = new Income();
+    income.incomeDate = this.finance.date;
+    this.finance.income.push(income);
+  }
+
+  updateIncome(income : Income){
+    this.finance.income[income.id] = income;
+    this.update.emit(this.finance);
   }
 
   updateBill(bill : Bill){
@@ -34,6 +46,11 @@ export class DayItemComponent implements OnInit {
 
   removeBill(i : number){
     this.finance.bill.splice(i, 1);
+    this.update.emit(this.finance);
+  }
+
+  removeIncome(i : number){
+    this.finance.income.splice(i, 1);
     this.update.emit(this.finance);
   }
 

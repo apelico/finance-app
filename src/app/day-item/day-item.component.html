@@ -15,13 +15,16 @@
   </div>
 
   <div class='buttons'>
-    <input type="button" (click)='onSubmit()' value='Add Bill'>
-    <button>Add Income</button>
+    <input type="button" (click)='addBill()' value='Add Bill'>
+    <input type="button" (click)='addIncome()' value='Add Income'>
   </div>
-  
-  <div class='income' *ngIf='finance.income.length != 0 '>
+
+  <div class='bill' *ngIf='finance.income.length != 0'>
     <div class='header'>
       Income
+    </div>
+    <div class='bill-item' *ngFor="let income of finance.income; let i = index">
+      <app-income-item class='bill' [id]=i (updateIncomeEvent)="updateIncome($event)" (removeIncomeEvent)="removeIncome($event)" [income]=income></app-income-item>
     </div>
   </div>
 

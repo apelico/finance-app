@@ -1,12 +1,11 @@
 <div class='head'>
-
-  <div>
-    {{income.incomeName}}
+  <div class='in'>
+    <input type="text" #name (keyup)="updateName(name.value)" placeholder="Name" name="incomeName" ngModel required #name="ngModel" >
   </div>
 
-    <div>
-    ${{income.incomeAmount}}
+  <div class='in'>
+    <input type="number" #amount (keyup)="updateAmount(amount.value)" placeholder="Amount" name="incomeAmount" ngModel required #amount="ngModel">
   </div>
 
-    <input type="button" value="X" (click)='removeIncome()'>
+  <input class='delete' type="button" value="X" (click)='removeIncome()'>
 </div>

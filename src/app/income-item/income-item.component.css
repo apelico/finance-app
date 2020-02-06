@@ -6,10 +6,14 @@
   margin:0;
 }
 
-input{
+.delete{
   border-radius: 6px;
   color:black;
   background-color: red;
   font-size: 15px;
   font-weight:bold;
+}
+
+.in{
+  width:20px;
 }

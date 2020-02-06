@@ -68,7 +68,7 @@ export class FinanceComponent implements OnInit {
     }
   }
 
-  setIncome(income : number){
+  updateIncome(income : number){
     this.currentCash = Number(income);
     this.updateList();
   }

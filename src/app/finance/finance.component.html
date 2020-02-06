@@ -1,9 +1,4 @@
 <div class='container'>
-  <app-income></app-income>
-  <hr>
-  <app-bill></app-bill>
-  <hr>
-
     <input type="button" value='ReCalculate' (click)="updateList()">
 
     <input type="number" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">

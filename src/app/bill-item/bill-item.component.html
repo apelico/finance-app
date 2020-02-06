@@ -1,13 +1,16 @@
 <div class='head'>
-  <div>
-    {{bill.billDate}}
-  </div>
-  <div>
-    {{bill.billName}}
-  </div>
-  <div>
-    ${{bill.billAmount}}
+
+  <div class='in'>
+    <input type="date" value='{{bill.billDate}}' name="billDate" ngModel required #date="ngModel">
   </div>
 
-  <input type="button" value="X" (click)='removeBill()'>
+  <div class='in'>
+    <input type="text" placeholder="Name" name="billName" ngModel required #name="ngModel">
+  </div>
+
+  <div class='in'>
+    <input type="number" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
+  </div>
+
+  <input class='delete' type="button" value="X" (click)='removeBill()'>
 </div>

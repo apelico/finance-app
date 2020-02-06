@@ -2,15 +2,15 @@
   <div class='info'>
     {{finance.date}}
 
-    <a style="color:green">Up : ${{finance.up}}</a>
-    <a style="color:red">Down : ${{finance.down}}</a>
+    <a style="color:green">Up: ${{finance.up}}</a>
+    <a style="color:red">Down: ${{finance.down}}</a>
 
     <div *ngIf='finance.amount > 0'>
-      <a style="color:green">Total : ${{finance.amount}}</a>
+      <a style="color:green">Total: ${{finance.amount}}</a>
     </div>
 
     <div *ngIf='finance.amount <= 0'>
-      <a style="color:red">Total : ${{finance.amount}}</a>
+      <a style="color:red">Total: ${{finance.amount}}</a>
     </div>
   </div>
 

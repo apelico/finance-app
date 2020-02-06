@@ -15,7 +15,13 @@ export class BillComponent implements OnInit {
   constructor(private financing : FinancingService) {
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+        var bill : Bill = new Bill();
+        bill.customBill();
+
+    this.financing.createBill(bill);
+    this.bills = this.financing.getBills();
+    }
 
   onSubmit(f: NgForm) {
     var bill : Bill = new Bill();

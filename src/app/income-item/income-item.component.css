@@ -1,33 +1,9 @@
 .head{
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   max-width: 400px;
-  height:30px;
-}
-
-.middle{
-  font-size: 20px;
-  text-align:center;
-  width:34%;
-}
-
-.left{
-  padding-left: 5px;
-  padding-top:5px;
-  width:33%;
-}
-
-.right{
-  padding-right: 5px;
-  padding-top:5px;
-  width:33%;
-}
-
-.body{
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom:5px;
+  padding: 5px;
+  margin:0;
 }
 
 input{
@@ -36,5 +12,4 @@ input{
   background-color: red;
   font-size: 15px;
   font-weight:bold;
-  float:right;
 }

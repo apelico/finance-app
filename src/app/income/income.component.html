@@ -1,9 +1,11 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-  
-  <input type="text" placeholder="incomeName" name="incomeName" ngModel required #name="ngModel">
-  <input type="date" name="incomeDate" ngModel required #date="ngModel">
-  <input type="number" placeholder="incomeAmount" name="incomeAmount" ngModel required #ammount="ngModel">
+<div class='title'>
+  Income
+</div>
 
+<form #f="ngForm" class='form' (ngSubmit)="onSubmit(f)" novalidate> 
+  <input type="text" placeholder="Name" name="incomeName" ngModel required #name="ngModel">
+  <input type="text" name="incomeDate" placeholder="Date" ngModel required #date="ngModel" onfocus="(this.type='date')" onblur="(this.type='text')">
+  <input type="number" placeholder="Amount" name="incomeAmount" ngModel required #ammount="ngModel">
   <button>Submit</button>
 </form>
 

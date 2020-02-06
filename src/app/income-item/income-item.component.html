@@ -1,18 +1,16 @@
 <div class='head'>
 
-  <div class='left'>
+  <div>
     {{income.incomeDate}}
   </div>
 
-  <div class='middle'>
+  <div>
     {{income.incomeName}}
   </div>
 
-  <div class='right'>
-    <input type="button" value="X" (click)='removeIncome()'>
+    <div>
+    ${{income.incomeAmount}}
   </div>
-</div>
 
-<div class='body'>
-  ${{income.incomeAmount}}
+    <input type="button" value="X" (click)='removeIncome()'>
 </div>

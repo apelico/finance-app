@@ -4,7 +4,7 @@
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class='form'>
   <input type="text" placeholder="Name" name="billName" ngModel required #name="ngModel">
-  <input type="text" name="billDate" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Date" ngModel required #date="ngModel">
+  <input type="date" name="billDate" ngModel required #date="ngModel">
   <input type="number" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
   <button>Submit</button>
 </form>

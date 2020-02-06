@@ -12,7 +12,12 @@ export class FinancingService {
   constructor() { }
 
   createBill(bill : Bill){
+    bill.index = this.bills.length;
     this.bills.push(bill);
+  }
+
+  updateBill(bill : Bill){
+    this.bills[bill.index] = bill;
   }
 
   removeBill(i : number){

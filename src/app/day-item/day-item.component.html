@@ -30,7 +30,7 @@
       Bills
     </div>
     <div class='bill-item' *ngFor="let bill of finance.bill; let i = index">
-      <app-bill-item class='bill' [id]=i (removeBillEvent)="removeBill($event)" [bill]=bill></app-bill-item>
+      <app-bill-item class='bill' [id]=i (updateBillEvent)="updateBill($event)" (removeBillEvent)="removeBill($event)" [bill]=bill></app-bill-item>
     </div>
   </div>
 </div>

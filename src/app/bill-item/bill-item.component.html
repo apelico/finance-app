@@ -1,6 +1,6 @@
 <div class='head'>
   <div class='in'>
-    <input type="text" (keyup)="onKey($event)" placeholder="Name" name="billName" ngModel required #name="ngModel" >
+    <input type="text" #name (keyup)="updateName(name.value)" placeholder="Name" name="billName" ngModel required #name="ngModel" >
   </div>
 
   <div class='in'>

@@ -40,16 +40,12 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < this.dailyFinance.length; i++){
       if(this.dailyFinance[i].date == day.date){
         this.dailyFinance[i] = day;
-        console.log(this.dailyFinance[i]);
         break;
       }
     }
   }
 
-  updateList(){
-    this.updateBills();
-    this.updateIncomes();
-    
+  updateList(){   
     for(var i = 0; i < 30; i++){
       if(i == 0) {
         this.dailyFinance[i].amount = this.currentCash;
@@ -66,28 +62,6 @@ export class FinanceComponent implements OnInit {
       if(this.dailyFinance[i].income.length > 0){
         for(var j = 0; j < this.dailyFinance[i].income.length;j++){
           this.dailyFinance[i].amount += Number(this.dailyFinance[i].income[j].incomeAmount);
-        }
-      }
-    }
-  }
-
-  updateBills(){
-    for(var i = 0; i < 30; i++){
-      for(var j = 0; j < this.dailyFinance[i].bill.length; j++){
-        if(this.dailyFinance[i].date == this.dailyFinance[i].bill[j].billDate){
-          this.dailyFinance[i].bill.push(this.dailyFinance[i].bill[j]);
-          this.dailyFinance[i].down += this.dailyFinance[i].bill[j].billAmount;
-        }
-      }
-    }
-  }
-
-  updateIncomes(){
-    for(var i = 0; i < 30; i++){
-      for(var j = 0; j < this.dailyFinance[i].income.length; j++){
-        if(this.dailyFinance[i].date == this.dailyFinance[i].income[j].incomeDate){
-          this.dailyFinance[i].income.push(this.dailyFinance[i].income[j]);
-          this.dailyFinance[i].up += this.dailyFinance[i].income[j].incomeAmount;
         }
       }
     }

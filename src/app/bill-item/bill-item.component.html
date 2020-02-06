@@ -4,7 +4,7 @@
   </div>
 
   <div class='in'>
-    <input type="number" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
+    <input type="number" #amount (keyup)="updateAmount(amount.value)" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
   </div>
 
   <input class='delete' type="button" value="X" (click)='removeBill()'>

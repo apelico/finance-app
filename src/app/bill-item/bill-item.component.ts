@@ -28,6 +28,11 @@ export class BillItemComponent implements OnInit {
     this.updateBillEvent.emit(this.bill);
   }
 
+  updateAmount(text : number){
+    this.bill.billAmount=text;
+    this.updateBillEvent.emit(this.bill);
+  }
+
 
 
 }

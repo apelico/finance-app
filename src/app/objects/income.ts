@@ -1,6 +1,6 @@
 export class Income {
   
-  incomeName : string = '';
+  incomeName : string = null;
   incomeDate : string = '';
   incomeAmount : number = 0;
   incomeFrequency : Frequency = Frequency.weekly;

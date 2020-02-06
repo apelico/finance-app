@@ -1,13 +1,25 @@
 .container{
-  display: flex;
-  justify-content: space-between;
-  padding:0px 5px 0px 5px;
+  padding:5px;
 
   border: 2px solid rgba(0,0,0,.5);
   box-shadow: 0 2px 0 0 rgba(0,0,0,.4);
   color:black;
   border-radius: 5px;
-  height:30px;
   max-width: 400px;
   margin-top:5px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.income{
+  border-bottom:1px solid black;
+  margin-bottom:5px;
+}
+
+.bill{
+  border-bottom:1px solid black;
+  margin-bottom:5px;
 }

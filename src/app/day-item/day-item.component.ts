@@ -9,9 +9,12 @@ import { Finance } from '../objects/finance';
 export class DayItemComponent implements OnInit {
   @Input() finance : Finance;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
+    if(this.finance.bill.length != 0)
+    console.log(this.finance);
   }
 
 }

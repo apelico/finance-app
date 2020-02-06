@@ -1,6 +1,6 @@
 export class Bill {
   index: number;
-  billName : string = '';
+  billName : string = null;
   billDate : string = '';
   billAmount : number = 0;
 

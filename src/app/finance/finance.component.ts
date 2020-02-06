@@ -24,6 +24,10 @@ export class FinanceComponent implements OnInit {
 
   ngOnInit() {
     this.createList();
+    var b : Bill = new Bill();
+    b.customBill();
+    this.financing.createBill(b);
+    this.updateList();
   }
 
   createList(){

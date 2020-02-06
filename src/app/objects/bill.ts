@@ -6,7 +6,7 @@ export class Bill {
 
   public customBill(){
     this.billName = 'car';
-    this.billDate = '02-22-2019';
+    this.billDate = '2020-02-15';
     this.billAmount = 350;
   }
 

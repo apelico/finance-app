@@ -83,7 +83,28 @@ export class FinanceComponent implements OnInit {
     d.setDate(d.getDate() + day);
     var newDay = d.getDate().toString().padStart(2,0);
     var newMonth = (d.getMonth() + 1).toString().padStart(2,0);
-    return d.getUTCFullYear() + '-' + (newMonth) + '-' + newDay;
+    return this.getDayName(day) + ' ' + (newMonth) + '-' + newDay;
+  }
+
+  getDayName(day : number){
+    var d = new Date();
+    d.setDate(d.getDate() + day);
+    switch(d.getDay()){
+        case 0:
+      return 'Sun';
+            case 1:
+      return 'Mon';
+            case 2:
+      return 'Tue';
+            case 3:
+      return 'Wed';
+            case 4:
+      return 'Thu';
+            case 5:
+      return 'Fri';
+            case 6:
+      return 'Sat';
+    }
   }
 
 }

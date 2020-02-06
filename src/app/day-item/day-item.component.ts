@@ -28,9 +28,8 @@ export class DayItemComponent implements OnInit {
   }
 
   updateBill(bill : Bill){
-    this.finance.bill[bill.index] = bill;
+    this.finance.bill[bill.id] = bill;
     this.update.emit(this.finance);
-    console.log('1');
   }
 
   removeBill(i : number){

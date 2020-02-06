@@ -18,6 +18,7 @@ export class FinanceComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    this.createList();
     this.updateList();
   }
 
@@ -39,13 +40,13 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < this.dailyFinance.length; i++){
       if(this.dailyFinance[i].date == day.date){
         this.dailyFinance[i] = day;
+        console.log(this.dailyFinance[i]);
         break;
       }
     }
   }
 
   updateList(){
-    this.createList();
     this.updateBills();
     this.updateIncomes();
     

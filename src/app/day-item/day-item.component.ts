@@ -13,8 +13,6 @@ export class DayItemComponent implements OnInit {
    }
 
   ngOnInit() {
-    if(this.finance.bill.length != 0)
-    console.log(this.finance);
   }
 
 }

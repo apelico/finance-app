@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Income } from '../objects/income';
 
-import { FinancingService } from '../services/financing.service';
-
 @Component({
   selector: 'app-income',
   templateUrl: './income.component.html',
@@ -12,7 +10,7 @@ import { FinancingService } from '../services/financing.service';
 export class IncomeComponent implements OnInit {
   incomes : Income[] = [];
 
-  constructor(private financing : FinancingService) {}
+  constructor() {}
 
   ngOnInit() {
   }

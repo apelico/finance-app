@@ -2,8 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Bill } from '../objects/bill';
 
-import { FinancingService } from '../services/financing.service';
-
 @Component({
   selector: 'app-bill',
   templateUrl: './bill.component.html',
@@ -12,7 +10,7 @@ import { FinancingService } from '../services/financing.service';
 export class BillComponent implements OnInit {
   bills : Bill[] = [];
 
-  constructor(private financing : FinancingService) {
+  constructor() {
   }
 
   ngOnInit() { }

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { FinanceComponent } from './finance/finance.component';
 import { BillComponent } from './bill/bill.component';
 import { IncomeComponent } from './income/income.component';
-import { FinancingService } from './services/financing.service';
 import { BillItemComponent } from './bill-item/bill-item.component';
 import { IncomeItemComponent } from './income-item/income-item.component';
 import { DayItemComponent } from './day-item/day-item.component';
@@ -17,6 +16,6 @@ import { DayItemComponent } from './day-item/day-item.component';
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
   declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent, BillItemComponent, IncomeItemComponent, DayItemComponent],
   bootstrap:    [ AppComponent ],
-  providers: [FinancingService]
+  providers: []
 })
 export class AppModule { }

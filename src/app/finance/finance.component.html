@@ -6,6 +6,6 @@
   <hr>
 
     <div class='day' *ngFor="let daily of dailyFinance">
-      <app-day-item [finance]=daily></app-day-item>
+      <app-day-item (update)="updateDay($event)" [finance]=daily ></app-day-item>
   </div>
 </div>

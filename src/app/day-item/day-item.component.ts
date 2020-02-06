@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Finance } from '../objects/finance';
 
 import {NgForm} from '@angular/forms';
@@ -13,9 +13,10 @@ import { FinancingService } from '../services/financing.service';
 })
 export class DayItemComponent implements OnInit {
   @Input() finance : Finance;
+  @Output() update : Finance = new EventEmitter<Bill>();
 
-  constructor(private financing : FinancingService) {
-   }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -23,18 +24,16 @@ export class DayItemComponent implements OnInit {
   onSubmit() {
     var bill : Bill = new Bill();
     bill.billDate=this.finance.date;
-    this.financing.createBill(bill);
     this.finance.bill.push(bill);
   }
 
   updateBill(bill : Bill){
     this.finance.bill[bill.index] = bill;
-    this.financing.updateBill(bill);
+    this.update.emit(this.finance);
+    console.log('1');
   }
 
   removeBill(i : number){
-    console.log(i);
-    this.financing.removeBill(this.finance.bill[i].index);
     this.finance.bill.splice(i, 1);
   }
 

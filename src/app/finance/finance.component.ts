@@ -4,29 +4,20 @@ import { Finance } from '../objects/finance';
 import { Bill } from '../objects/bill';
 import { Income } from '../objects/income';
 
-import { FinancingService } from '../services/financing.service';
-
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
   styleUrls: ['./finance.component.css']
 })
 export class FinanceComponent implements OnInit {
-  incomes: Income[];
-  bills: Bill[];
-
   dailyFinance : Finance[] = [];
   currentCash : number = 0;
 
-  constructor(private financing : FinancingService) {}
+  @Input() dayChange : Finance;
 
-
+  constructor() {}
 
   ngOnInit() {
-    this.createList();
-    var b : Bill = new Bill();
-    b.customBill();
-    this.financing.createBill(b);
     this.updateList();
   }
 
@@ -41,6 +32,15 @@ export class FinanceComponent implements OnInit {
       }
           finance.date = this.getDate(i);
           this.dailyFinance.push(finance);
+    }
+  }
+
+  updateDay(day : Finance){
+    for(var i = 0; i < this.dailyFinance.length; i++){
+      if(this.dailyFinance[i].date == day.date){
+        this.dailyFinance[i] = day;
+        break;
+      }
     }
   }
 
@@ -71,28 +71,22 @@ export class FinanceComponent implements OnInit {
   }
 
   updateBills(){
-    this.bills = [];
-    this.bills = this.financing.getBills();
-
     for(var i = 0; i < 30; i++){
-      for(var j = 0; j < this.bills.length; j++){
-        if(this.dailyFinance[i].date == this.bills[j].billDate){
-          this.dailyFinance[i].bill.push(this.bills[j]);
-          this.dailyFinance[i].down += this.bills[j].billAmount;
+      for(var j = 0; j < this.dailyFinance[i].bill.length; j++){
+        if(this.dailyFinance[i].date == this.dailyFinance[i].bill[j].billDate){
+          this.dailyFinance[i].bill.push(this.dailyFinance[i].bill[j]);
+          this.dailyFinance[i].down += this.dailyFinance[i].bill[j].billAmount;
         }
       }
     }
   }
 
   updateIncomes(){
-    this.incomes = [];
-    this.incomes = this.financing.getIncomes();
-
     for(var i = 0; i < 30; i++){
-      for(var j = 0; j < this.incomes.length; j++){
-        if(this.dailyFinance[i].date == this.incomes[j].incomeDate){
-          this.dailyFinance[i].income.push(this.incomes[j]);
-          this.dailyFinance[i].up += this.incomes[j].incomeAmount;
+      for(var j = 0; j < this.dailyFinance[i].income.length; j++){
+        if(this.dailyFinance[i].date == this.dailyFinance[i].income[j].incomeDate){
+          this.dailyFinance[i].income.push(this.dailyFinance[i].income[j]);
+          this.dailyFinance[i].up += this.dailyFinance[i].income[j].incomeAmount;
         }
       }
     }

@@ -43,6 +43,7 @@ export class FinanceComponent implements OnInit {
         break;
       }
     }
+    this.updateList();
   }
 
   updateList(){   

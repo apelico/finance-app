@@ -34,6 +34,7 @@ export class DayItemComponent implements OnInit {
 
   removeBill(i : number){
     this.finance.bill.splice(i, 1);
+    this.update.emit(this.finance);
   }
 
 }

@@ -1,11 +1,6 @@
 <div class='head'>
-
   <div class='in'>
-    <input type="date" value='{{bill.billDate}}' name="billDate" ngModel required #date="ngModel">
-  </div>
-
-  <div class='in'>
-    <input type="text" placeholder="Name" name="billName" ngModel required #name="ngModel">
+    <input type="text" (keyup)="onKey($event)" placeholder="Name" name="billName" ngModel required #name="ngModel" >
   </div>
 
   <div class='in'>

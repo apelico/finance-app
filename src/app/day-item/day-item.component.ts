@@ -20,17 +20,16 @@ export class DayItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(f: NgForm) {
+  onSubmit() {
     var bill : Bill = new Bill();
-    bill.billName = f.value['billName'];
-    bill.billDate = f.value['billDate'];
-    bill.billAmount = f.value['billAmount'];
-
+    bill.billDate=this.finance.date;
     this.financing.createBill(bill);
+    this.finance.bill.push(bill);
   }
 
   removeBill(i : number){
     this.financing.removeBill(i);
+    this.finance.bill.splice(i, 1);
   }
 
 }

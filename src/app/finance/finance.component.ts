@@ -48,6 +48,8 @@ export class FinanceComponent implements OnInit {
 
   updateList(){   
     for(var i = 0; i < 30; i++){
+      this.dailyFinance[i].down = 0;
+      this.dailyFinance[i].up = 0;
       if(i == 0) {
         this.dailyFinance[i].amount = this.currentCash;
       }else{
@@ -57,12 +59,14 @@ export class FinanceComponent implements OnInit {
       if(this.dailyFinance[i].bill.length > 0){
         for(var j = 0; j < this.dailyFinance[i].bill.length;j++){
           this.dailyFinance[i].amount -= Number(this.dailyFinance[i].bill[j].billAmount);
+          this.dailyFinance[i].down += Number(this.dailyFinance[i].bill[j].billAmount);
         }
       }
 
       if(this.dailyFinance[i].income.length > 0){
         for(var j = 0; j < this.dailyFinance[i].income.length;j++){
           this.dailyFinance[i].amount += Number(this.dailyFinance[i].income[j].incomeAmount);
+          this.dailyFinance[i].up += Number(this.dailyFinance[i].income[j].incomeAmount);
         }
       }
     }

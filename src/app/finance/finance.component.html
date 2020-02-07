@@ -1,5 +1,5 @@
 <div class='container'>
-    <input type="number" (keyup)="updateIncome(income.value)" #income placeholder='CurrentIncome' (keyup.enter)="setIncome(income.value)">
+    <input type="number" (keyup)="updateIncome(income.value)" #income placeholder='Current Cash' (keyup.enter)="setIncome(income.value)">
   <hr>
 
     <div class='day' *ngFor="let daily of dailyFinance">

@@ -9,7 +9,7 @@
 
   <div class='in'>
     Monthly
-    <input type="checkbox" #monthly (keyup)="updateAmount(amount.value)" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'A':'B')" name="billAmount">
+    <input type="checkbox" #monthly [(ngModel)]="isChecked" (change)="checkValue(isChecked?'A':'B')" name="billAmount">
   </div>
 
   <input class='delete' type="button" value="X" (click)='removeBill()'>

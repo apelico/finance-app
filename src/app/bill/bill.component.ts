@@ -15,9 +15,4 @@ export class BillComponent implements OnInit {
 
   ngOnInit() { }
 
-  removeBill(i : number){
-    this.financing.removeBill(i);
-    this.bills = this.financing.getBills();
-  }
-
 }

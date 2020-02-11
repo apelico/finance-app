@@ -76,8 +76,14 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < 30; i++){
       if(this.dailyFinance[i].date != b.billDate){
         if(this.dailyFinance[i].day == b.billDay){
-            this.monthlyBill(this.dailyFinance[i].bill.push(b));
-            console.log('1');
+          console.log('2');
+          for(var j = 0; j < this.dailyFinance[i].bill.length;j++){
+            if(this.dailyFinance[i].bill[j].billName != b.billName){
+              this.monthlyBill(this.dailyFinance[i].bill.push(b));
+              console.log('1');
+              break;
+            }
+          }
         }
       }
     }

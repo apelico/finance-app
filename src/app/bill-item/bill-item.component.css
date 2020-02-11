@@ -18,3 +18,8 @@
 input{
   width:110px;
 }
+
+.in{
+  display:flex;
+  width:90px;
+}

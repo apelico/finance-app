@@ -25,6 +25,15 @@ export class BillItemComponent implements OnInit {
     this.removeBillEvent.emit(this.id);
   }
 
+  checkValue(event: any){
+   if(event == 'A'){
+     this.bill.monthly = true;
+   }else{
+     this.bill.monthly = false;
+   }
+   this.updateBillEvent.emit(this.bill);
+}
+
   updateName(text : string){
     this.bill.billName=text;
     this.updateBillEvent.emit(this.bill);

@@ -60,6 +60,10 @@ export class FinanceComponent implements OnInit {
         for(var j = 0; j < this.dailyFinance[i].bill.length;j++){
           this.dailyFinance[i].amount -= Number(this.dailyFinance[i].bill[j].billAmount);
           this.dailyFinance[i].down += Number(this.dailyFinance[i].bill[j].billAmount);
+
+          if(this.dailyFinance[i].bill[j].monthly){
+            this.monthlyBill(this.dailyFinance[i].bill[j]);
+          }
         }
       }
 
@@ -75,6 +79,10 @@ export class FinanceComponent implements OnInit {
   updateIncome(income : number){
     this.currentCash = Number(income);
     this.updateList();
+  }
+
+  monthlyBill(b : Bill){
+    console.log(b.billDate);
   }
 
 

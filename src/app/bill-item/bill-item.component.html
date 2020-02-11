@@ -8,7 +8,8 @@
   </div>
 
   <div class='in'>
-    <input type="range" #amount (keyup)="updateAmount(amount.value)" placeholder="Schedule" name="billAmount" ngModel required #amount="ngModel">
+    Monthly
+    <input type="checkbox" #monthly (keyup)="updateAmount(amount.value)" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'A':'B')" name="billAmount">
   </div>
 
   <input class='delete' type="button" value="X" (click)='removeBill()'>

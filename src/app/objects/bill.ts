@@ -4,6 +4,7 @@ export class Bill {
   billName : string = null;
   billDate : string = '';
   billAmount : number = 0;
+  monthly : boolean = false;
 
   public customBill(){
     this.billName = 'car';

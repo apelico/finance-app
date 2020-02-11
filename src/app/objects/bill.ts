@@ -1,7 +1,7 @@
 export class Bill {
   index: number;
   id: number;
-  billName : string = null;
+  billName : string = 'Name';
   billDate : string = '';
   billAmount : number = 0;
 

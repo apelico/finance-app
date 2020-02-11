@@ -7,5 +7,9 @@
     <input type="number" #amount (keyup)="updateAmount(amount.value)" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
   </div>
 
+  <div class='in'>
+    <input type="range" #amount (keyup)="updateAmount(amount.value)" placeholder="Schedule" name="billAmount" ngModel required #amount="ngModel">
+  </div>
+
   <input class='delete' type="button" value="X" (click)='removeBill()'>
 </div>

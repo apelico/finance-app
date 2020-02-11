@@ -12,8 +12,9 @@
   background-color: red;
   font-size: 15px;
   font-weight:bold;
+  width:25px;
 }
 
-.in{
-  width:20px;
+input{
+  width:110px;
 }

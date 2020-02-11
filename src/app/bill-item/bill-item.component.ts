@@ -11,6 +11,8 @@ export class BillItemComponent implements OnInit {
   @Input() id : number;
   @Output() removeBillEvent = new EventEmitter<number>();
   @Output() updateBillEvent = new EventEmitter<Bill>();
+
+  Schedule: any = ['Florida', 'South Dakota', 'Tennessee', 'Michigan']
   
 
   constructor() { }

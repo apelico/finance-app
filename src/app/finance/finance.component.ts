@@ -37,16 +37,6 @@ export class FinanceComponent implements OnInit {
     }
   }
 
-  updateDay(day : Finance){
-    for(var i = 0; i < this.dailyFinance.length; i++){
-      if(this.dailyFinance[i].date == day.date){
-        this.dailyFinance[i] = day;
-        break;
-      }
-    }
-    this.updateList();
-  }
-
   updateList(){   
     for(var i = 0; i < 30; i++){
       this.dailyFinance[i].down = 0;
@@ -93,6 +83,13 @@ export class FinanceComponent implements OnInit {
     var newDay = d.getDate().toString().padStart(2,0);
     var newMonth = (d.getMonth() + 1).toString().padStart(2,0);
     return this.getDayName(day) + ' ' + (newMonth) + '-' + newDay;
+  }
+
+  getDay(day : number){
+    var d = new Date();
+    d.setDate(d.getDate() + day);
+    var newDay = d.getDate().toString().padStart(2,0);
+    return newDay;
   }
 
   getDayName(day : number){

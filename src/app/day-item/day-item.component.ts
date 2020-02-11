@@ -23,6 +23,7 @@ export class DayItemComponent implements OnInit {
   addBill() {
     var bill : Bill = new Bill();
     bill.billDate=this.finance.date;
+    bill.billDay = this.finance.day;
     this.finance.bill.push(bill);
   }
 

@@ -15,16 +15,6 @@ export class BillComponent implements OnInit {
 
   ngOnInit() { }
 
-  onSubmit(f: NgForm) {
-    var bill : Bill = new Bill();
-    bill.billName = f.value['billName'];
-    bill.billDate = f.value['billDate'];
-    bill.billAmount = f.value['billAmount'];
-
-    this.financing.createBill(bill);
-    this.bills = this.financing.getBills();
-  }
-
   removeBill(i : number){
     this.financing.removeBill(i);
     this.bills = this.financing.getBills();

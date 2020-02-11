@@ -32,6 +32,7 @@ export class FinanceComponent implements OnInit {
         finance.amount = +this.dailyFinance[i-1].amount;
       }
           finance.date = this.getDate(i);
+          finance.day = this.getDay(i);
           this.dailyFinance.push(finance);
     }
   }

@@ -2,13 +2,6 @@
   Bills
 </div>
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class='form'>
-  <input type="text" placeholder="Name" name="billName" ngModel required #name="ngModel">
-  <input type="date" name="billDate" ngModel required #date="ngModel">
-  <input type="number" placeholder="Amount" name="billAmount" ngModel required #amount="ngModel">
-  <button>Submit</button>
-</form>
-
 <div class='bill-item' *ngFor="let bill of bills; let i = index">
     <app-bill-item class='bill' [id]=i (removeBillEvent)="removeBill($event)" [bill]=bill></app-bill-item>
     <br>

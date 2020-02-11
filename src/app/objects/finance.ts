@@ -3,6 +3,7 @@ import { Income } from './income';
 
 export class Finance {
   date: string;
+  day: number;
   amount: number;
   up: number = 0;
   down: number = 0;

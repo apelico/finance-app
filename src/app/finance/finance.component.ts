@@ -12,6 +12,7 @@ import { Income } from '../objects/income';
 export class FinanceComponent implements OnInit {
   dailyFinance : Finance[] = [];
   currentCash : number = 0;
+  dayCount : number = 30;
 
   @Input() dayChange : Finance;
 
@@ -24,7 +25,7 @@ export class FinanceComponent implements OnInit {
 
   createList(){
     this.dailyFinance = [];
-    for(var i = 0; i < 30; i++){
+    for(var i = 0; i < this.dayCount; i++){
       var finance = new Finance();
       if(i == 0) {
         finance.amount = this.currentCash;
@@ -38,7 +39,25 @@ export class FinanceComponent implements OnInit {
   }
 
   updateList(){   
-    for(var i = 0; i < 30; i++){
+
+    for(var i = 0; i < this.dayCount; i++)
+    {
+      this.dailyFinance[i].change = 0;
+
+      if(i == 0) {
+        this.dailyFinance[i].amount = this.currentCash;
+      }else{
+        this.dailyFinance[i].amount = this.dailyFinance[i-1].amount;
+      }
+
+      if(this.dailyFinance[i].money.length > 0){
+        for(var j = 0; j < this.dailyFinance[i].money.length;j++){
+          this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
+        }
+      }
+    }
+
+    /*for(var i = 0; i < 30; i++){
       this.dailyFinance[i].down = 0;
       this.dailyFinance[i].up = 0;
       if(i == 0) {
@@ -64,7 +83,7 @@ export class FinanceComponent implements OnInit {
           this.dailyFinance[i].up += Number(this.dailyFinance[i].income[j].incomeAmount);
         }
       }
-    }
+    }*/
   }
 
   updateIncome(income : number){
@@ -73,7 +92,7 @@ export class FinanceComponent implements OnInit {
   }
 
   monthlyBill(b : Bill){
-    for(var i = 0; i < 30; i++){
+    for(var i = 0; i < this.dayCount; i++){
       if(this.dailyFinance[i].date != b.billDate){
         if(this.dailyFinance[i].day == b.billDay){
           if(this.dailyFinance[i].bill.length == 0){

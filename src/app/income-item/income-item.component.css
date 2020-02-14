@@ -12,8 +12,19 @@
   background-color: red;
   font-size: 15px;
   font-weight:bold;
+  width:25px;
+}
+
+input{
+  width:110px;
+}
+
+.check{
+  display:flex;
+  width:100px;
 }
 
 .in{
-  width:20px;
+  display:flex;
+  width:90px;
 }

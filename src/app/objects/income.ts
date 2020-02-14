@@ -3,7 +3,8 @@ export class Income {
   incomeName : string = null;
   incomeDate : string = '';
   incomeAmount : number = 0;
-  incomeFrequency : Frequency = Frequency.weekly;
+  isWeekly = false;
+  isBiWeekly = false;
 
   public customIncome(){
     this.incomeName = 'austin';
@@ -11,9 +12,4 @@ export class Income {
     this.incomeAmount = 750;
   }
 
-}
-
-enum Frequency {
-  "weekly",
-  "biWeekly"
 }

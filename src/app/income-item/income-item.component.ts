@@ -17,7 +17,24 @@ export class IncomeItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.income.id = this.id;
+  }
+
+  checkWeekly(event: any){
+    if(event == 'A'){
+      this.income.isWeekly = true;
+    }else{
+      this.income.isWeekly = false;
+    }
+    this.updateIncomeEvent.emit(this.income);
+  }
+
+  checkBiWeekly(event: any){
+    if(event == 'A'){
+      this.income.isBiWeekly = true;
+    }else{
+      this.income.isBiWeekly = false;
+    }
+    this.updateIncomeEvent.emit(this.income);
   }
 
   removeIncome(){

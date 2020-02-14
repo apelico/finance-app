@@ -2,8 +2,7 @@
   <div class='info'>
     {{finance.date}}
 
-    <a style="color:green">Up: ${{finance.up}}</a>
-    <a style="color:red">Down: ${{finance.down}}</a>
+    <a>Change: ${{finance.change}}</a>
 
     <div *ngIf='finance.amount > 0'>
       <a style="color:green">Total: ${{finance.amount}}</a>
@@ -15,11 +14,19 @@
   </div>
 
   <div class='buttons'>
-    <input type="button" (click)='addBill()' value='Add Bill'>
-    <input type="button" (click)='addIncome()' value='Add Income'>
+    <input type="button" (click)='addFinance()' value='Add Finance'>
   </div>
 
-  <div class='bill' *ngIf='finance.income.length != 0'>
+  <div class='finance' *ngIf='finance.money.length != 0'>
+    <div class='header'>
+      Finances
+    </div>
+    <div class='finance-item' *ngFor="let finance of finance.money; let i = index">
+      <app-income-item class='bill' [id]=i (updateIncomeEvent)="updateIncome($event)" (removeIncomeEvent)="removeIncome($event)" [income]=income></app-income-item>
+    </div>
+  </div>
+
+  <!--<div class='bill' *ngIf='finance.income.length != 0'>
     <div class='header'>
       Income
     </div>
@@ -35,5 +42,5 @@
     <div class='bill-item' *ngFor="let bill of finance.bill; let i = index">
       <app-bill-item class='bill' [id]=i (updateBillEvent)="updateBill($event)" (removeBillEvent)="removeBill($event)" [bill]=bill></app-bill-item>
     </div>
-  </div>
+  </div>-->
 </div>

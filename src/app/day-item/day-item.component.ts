@@ -4,6 +4,7 @@ import { Finance } from '../objects/finance';
 import {NgForm} from '@angular/forms';
 import { Bill } from '../objects/bill';
 import { Income } from '../objects/income';
+import { Money } from '../objects/money';
 
 @Component({
   selector: 'app-day-item',
@@ -18,6 +19,13 @@ export class DayItemComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  addFinance() {
+        var money : Money = new Money();
+      bill.billDate=this.finance.date;
+    bill.billDay = this.finance.day;
+    this.finance.bill.push(bill);
   }
 
   addBill() {

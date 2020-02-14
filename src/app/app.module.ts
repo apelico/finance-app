@@ -10,11 +10,12 @@ import { IncomeComponent } from './income/income.component';
 import { BillItemComponent } from './bill-item/bill-item.component';
 import { IncomeItemComponent } from './income-item/income-item.component';
 import { DayItemComponent } from './day-item/day-item.component';
+import { FinanceItemComponent } from './finance-item/finance-item.component';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent, BillItemComponent, IncomeItemComponent, DayItemComponent],
+  declarations: [ AppComponent, FinanceComponent, BillComponent, IncomeComponent, BillItemComponent, IncomeItemComponent, DayItemComponent, FinanceItemComponent],
   bootstrap:    [ AppComponent ],
   providers: []
 })

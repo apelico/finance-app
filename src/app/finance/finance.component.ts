@@ -57,62 +57,11 @@ export class FinanceComponent implements OnInit {
         }
       }
     }
-
-    /*for(var i = 0; i < 30; i++){
-      this.dailyFinance[i].down = 0;
-      this.dailyFinance[i].up = 0;
-      if(i == 0) {
-        this.dailyFinance[i].amount = this.currentCash;
-      }else{
-        this.dailyFinance[i].amount = this.dailyFinance[i-1].amount;
-      }
-
-      if(this.dailyFinance[i].bill.length > 0){
-        for(var j = 0; j < this.dailyFinance[i].bill.length;j++){
-          this.dailyFinance[i].amount -= Number(this.dailyFinance[i].bill[j].billAmount);
-          this.dailyFinance[i].down += Number(this.dailyFinance[i].bill[j].billAmount);
-
-          if(this.dailyFinance[i].bill[j].monthly){
-            this.monthlyBill(this.dailyFinance[i].bill[j]);
-          }
-        }
-      }
-
-      if(this.dailyFinance[i].income.length > 0){
-        for(var j = 0; j < this.dailyFinance[i].income.length;j++){
-          this.dailyFinance[i].amount += Number(this.dailyFinance[i].income[j].incomeAmount);
-          this.dailyFinance[i].up += Number(this.dailyFinance[i].income[j].incomeAmount);
-        }
-      }
-    }*/
   }
 
   updateIncome(income : number){
     this.currentCash = Number(income);
     this.updateList();
-  }
-
-  monthlyBill(b : Bill){
-    for(var i = 0; i < this.dayCount; i++){
-      if(this.dailyFinance[i].date != b.billDate){
-        if(this.dailyFinance[i].day == b.billDay){
-          if(this.dailyFinance[i].bill.length == 0){
-            this.monthlyBill(this.dailyFinance[i].bill.push(b));
-          }else{
-            var has = false;
-            for(var j = 0; j < this.dailyFinance[i].bill.length;j++){
-              if(this.dailyFinance[i].bill[j].billName == b.billName){
-                has = true;
-                break;
-              }
-            }
-            if(has == false){
-              this.monthlyBill(this.dailyFinance[i].bill.push(b));
-            }
-          }
-        }
-      }
-    }
   }
 
   updateDay(day : Finance){

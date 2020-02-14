@@ -33,41 +33,8 @@ export class DayItemComponent implements OnInit {
     this.update.emit(this.finance);
   }
 
-  addBill() {
-    var bill : Bill = new Bill();
-    bill.billDate=this.finance.date;
-    bill.billDay = this.finance.day;
-    this.finance.bill.push(bill);
-  }
-
   removeFinance(i : number){
     this.finance.money.splice(i, 1);
-    this.update.emit(this.finance);
-  }
-
-  addIncome(){
-    var income : Income = new Income();
-    income.incomeDate = this.finance.date;
-    this.finance.income.push(income);
-  }
-
-  updateIncome(income : Income){
-    this.finance.income[income.id] = income;
-    this.update.emit(this.finance);
-  }
-
-  updateBill(bill : Bill){
-    this.finance.bill[bill.id] = bill;
-    this.update.emit(this.finance);
-  }
-
-  removeBill(i : number){
-    this.finance.bill.splice(i, 1);
-    this.update.emit(this.finance);
-  }
-
-  removeIncome(i : number){
-    this.finance.income.splice(i, 1);
     this.update.emit(this.finance);
   }
 

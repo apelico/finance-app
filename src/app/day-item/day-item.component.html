@@ -22,7 +22,7 @@
       Finances
     </div>
     <div class='finance-item' *ngFor="let finance of finance.money; let i = index">
-      <app-income-item class='bill' [id]=i (updateIncomeEvent)="updateIncome($event)" (removeIncomeEvent)="removeIncome($event)" [income]=income></app-income-item>
+      <app-finance-item class='bill' [id]=i (updateFinanceEvent)="updateFinance($event)" (removeFinanceEvent)="removeFinance($event)" [finance]=finance></app-finance-item>
     </div>
   </div>
 

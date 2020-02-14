@@ -52,6 +52,7 @@ export class FinanceComponent implements OnInit {
 
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
+          this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
           this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
         }
       }

@@ -1,10 +1,10 @@
 <div class='head'>
   <div class='in'>
-    <input type="text" (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+    <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
   </div>
 
   <div class='in'>
-    <input type="number" ngModel #amount="ngModel" (keyup)="updateName(name.value)" placeholder="{{finance.amount}}">
+    <input type="number" #name ngModel #amount="ngModel" (keyup)="updateAmount(name.value)" placeholder="{{finance.amount}}">
   </div>
 
   <input class='delete' type="button" value="X" (click)='removeBill()'>

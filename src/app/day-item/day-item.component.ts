@@ -22,10 +22,15 @@ export class DayItemComponent implements OnInit {
   }
 
   addFinance() {
-        var money : Money = new Money();
-      bill.billDate=this.finance.date;
-    bill.billDay = this.finance.day;
-    this.finance.bill.push(bill);
+    var money : Money = new Money();
+    money.date = this.finance.date;
+    money.day = this.finance.day;
+    this.finance.money.push(money);
+  }
+
+  updateFinance(money : Money){
+    this.finance.money[money.id] = money;
+    this.update.emit(this.finance);
   }
 
   addBill() {
@@ -33,6 +38,11 @@ export class DayItemComponent implements OnInit {
     bill.billDate=this.finance.date;
     bill.billDay = this.finance.day;
     this.finance.bill.push(bill);
+  }
+
+  removeFinance(i : number){
+    this.finance.money.splice(i, 1);
+    this.update.emit(this.finance);
   }
 
   addIncome(){

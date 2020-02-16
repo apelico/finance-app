@@ -38,21 +38,21 @@ export class FinanceComponent implements OnInit {
     }
   }
 
-  updateList(){   
+  resetList(){
+    for(var i = 0; i < this.dayCount; i++){
+      this.dailyFinance[i].change = 0;
+    }
+  }
 
+  updateList(){   
+  this.resetList();
     for(var i = 0; i < this.dayCount; i++)
     {
-      this.dailyFinance[i].change = this.dailyFinance[i].reoccuring;
-
       if(i == 0) {
         this.dailyFinance[i].amount = this.currentCash;
       }else{
         this.dailyFinance[i].amount = this.dailyFinance[i-1].amount;
       }
-
-      this.dailyFinance[i].amount += this.dailyFinance[i].reoccuring;
-      this.dailyFinance[i].reoccuring = 0;
-
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
           if(this.dailyFinance[i].money[j].isMonthly){
@@ -76,7 +76,8 @@ export class FinanceComponent implements OnInit {
     this.dailyFinance[i].reoccuring = 0;
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
-          this.dailyFinance[i].reoccuring += Number(m.amount);
+          this.dailyFinance[i].amount += Number(m.amount);
+          this.dailyFinance[i].change += Number(m.amount);
         }
       }
     }
@@ -85,7 +86,8 @@ export class FinanceComponent implements OnInit {
   addWeekly(m : Money, start : number){
     var index : number = 7;
     while(this.dailyFinance[start + index] != null){
-      this.dailyFinance[start + index].reoccuring += Number(m.amount);
+      this.dailyFinance[start + index].amount += Number(m.amount);
+      this.dailyFinance[start + index].change += Number(m.amount);
       index += 7;
     }
   }
@@ -93,7 +95,8 @@ export class FinanceComponent implements OnInit {
   addBiWeekly(m : Money, start : number){
     var index : number = 14;
     while(this.dailyFinance[start + index] != null){
-      this.dailyFinance[start + index].reoccuring += Number(m.amount);
+      this.dailyFinance[start + index].amount += Number(m.amount);
+      this.dailyFinance[start + index].change += Number(m.amount);
       index += 14;
     }
   }

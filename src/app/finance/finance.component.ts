@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Finance } from '../objects/finance';
-import { Bill } from '../objects/bill';
+import { Money } from '../objects/money';
 import { Income } from '../objects/income';
 
 @Component({
@@ -12,7 +12,7 @@ import { Income } from '../objects/income';
 export class FinanceComponent implements OnInit {
   dailyFinance : Finance[] = [];
   currentCash : number = 0;
-  dayCount : number = 30;
+  dayCount : number = 60;
 
   @Input() dayChange : Finance;
 
@@ -54,6 +54,20 @@ export class FinanceComponent implements OnInit {
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
           this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
           this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
+
+          if(this.dailyFinance[i].money[j].isMonthly){
+            this.addMonthly(this.dailyFinance[i].money[j]);
+          }
+        }
+      }
+    }
+  }
+
+  addMonthly(m : Money){
+    for(var i = 0; i < this.dayCount; i++){
+      if(this.dailyFinance[i].date != m.date){
+        if(this.dailyFinance[i].day == m.day){
+          this.dailyFinance[i].money.push(m);
         }
       }
     }

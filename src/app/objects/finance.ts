@@ -10,6 +10,7 @@ export class Finance {
   up: number = 0;
   down: number = 0;
   change: number = 0;
+  reoccuring: number = 0;
 
 
   money : Money[] = [];

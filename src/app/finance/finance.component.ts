@@ -42,7 +42,7 @@ export class FinanceComponent implements OnInit {
 
     for(var i = 0; i < this.dayCount; i++)
     {
-      this.dailyFinance[i].change = 0;
+      this.dailyFinance[i].change = this.dailyFinance[i].reoccuring;
 
       if(i == 0) {
         this.dailyFinance[i].amount = this.currentCash;
@@ -50,14 +50,22 @@ export class FinanceComponent implements OnInit {
         this.dailyFinance[i].amount = this.dailyFinance[i-1].amount;
       }
 
+      this.dailyFinance[i].amount += this.dailyFinance[i].reoccuring;
+      this.dailyFinance[i].reoccuring = 0;
+
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
-          this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
-          this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
-
           if(this.dailyFinance[i].money[j].isMonthly){
             this.addMonthly(this.dailyFinance[i].money[j]);
           }
+          if(this.dailyFinance[i].money[j].isWeekly){
+            this.addWeekly(this.dailyFinance[i].money[j],i);
+          }
+          if(this.dailyFinance[i].money[j].isBiWeekly){
+            this.addBiWeekly(this.dailyFinance[i].money[j],i);
+          }
+          this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
+          this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
         }
       }
     }
@@ -65,17 +73,28 @@ export class FinanceComponent implements OnInit {
 
   addMonthly(m : Money){
     for(var i = 0; i < this.dayCount; i++){
+    this.dailyFinance[i].reoccuring = 0;
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
-          var newM : Money = m;
-          newM.date = this.dailyFinance[i].date;
-          newM.day = this.dailyFinance[i].day;
-
-          this.dailyFinance[i].money.push(m);
-          //console.log(this.dailyFinance[i].date + '   ' + m.date);
-          //console.log(newM);
+          this.dailyFinance[i].reoccuring += Number(m.amount);
         }
       }
+    }
+  }
+
+  addWeekly(m : Money, start : number){
+    var index : number = 7;
+    while(this.dailyFinance[start + index] != null){
+      this.dailyFinance[start + index].reoccuring += Number(m.amount);
+      index += 7;
+    }
+  }
+
+  addBiWeekly(m : Money, start : number){
+    var index : number = 14;
+    while(this.dailyFinance[start + index] != null){
+      this.dailyFinance[start + index].reoccuring += Number(m.amount);
+      index += 14;
     }
   }
 

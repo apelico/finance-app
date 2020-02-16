@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Finance } from '../objects/finance';
 
 import {NgForm} from '@angular/forms';
-import { Bill } from '../objects/bill';
-import { Income } from '../objects/income';
 import { Money } from '../objects/money';
 
 @Component({
@@ -13,7 +11,7 @@ import { Money } from '../objects/money';
 })
 export class DayItemComponent implements OnInit {
   @Input() finance : Finance;
-  @Output() update : Finance = new EventEmitter<Bill>();
+  @Output() update : Finance = new EventEmitter<Money>();
 
   constructor() {
   }

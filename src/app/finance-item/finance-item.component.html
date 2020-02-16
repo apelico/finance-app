@@ -1,11 +1,35 @@
 <div class='head'>
-  <div class='in'>
-    <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+  <div class='top'>
+    <div>
+      <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+    </div>
+
+    <div>
+      <input type="number" #name ngModel #amount="ngModel" (keyup)="updateAmount(name.value)" placeholder="${{finance.amount}}">
+    </div>
+
+    <input class='delete' type="button" value="X" (click)='removeBill()'>
   </div>
 
-  <div class='in'>
-    <input type="number" #name ngModel #amount="ngModel" (keyup)="updateAmount(name.value)" placeholder="{{finance.amount}}">
-  </div>
+  <div class='bot'>
+    <div class='check'>
+      <div>
+        Montly
+      </div>
+        <input type="checkbox" #monthly [(ngModel)]="isMonthly" (change)="checkMonthly(isMonthly?'A':'B')" name="isMonthly">
+    </div>
 
-  <input class='delete' type="button" value="X" (click)='removeBill()'>
+    <div class='check'>
+      <div>
+        Weekly
+      </div>
+        <input type="checkbox" #weekly [(ngModel)]="isWeekly" (change)="checkWeekly(isWeekly?'A':'B')" name="isWeekly">
+    </div>
+
+    <div class='check'>
+      <div>
+        Bi-Weekly
+      </div>
+        <input type="checkbox" #biweekly [(ngModel)]="isBiWeekly" (change)="checkBiWeekly(isBiWeekly?'A':'B')" name="isBiWeekly">
+    </div>
 </div>

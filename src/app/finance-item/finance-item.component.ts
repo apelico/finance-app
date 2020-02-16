@@ -32,4 +32,31 @@ export class FinanceItemComponent implements OnInit {
     this.updateFinanceEvent.emit(this.finance);
   }
 
+  checkMonthly(event: any){
+   if(event == 'A'){
+     this.finance.isMonthly = true;
+   }else{
+     this.finance.isMonthly = false;
+   }
+   this.updateFinanceEvent.emit(this.finance);
+  }
+
+  checkWeekly(event: any){
+   if(event == 'A'){
+     this.finance.isWeekly = true;
+   }else{
+     this.finance.isWeekly = false;
+   }
+   this.updateFinanceEvent.emit(this.finance);
+  }
+
+  checkBiWeekly(event: any){
+   if(event == 'A'){
+     this.finance.isBiWeekly = true;
+   }else{
+     this.finance.isBiWeekly = false;
+   }
+   this.updateFinanceEvent.emit(this.finance);
+  }
+
 }

@@ -67,7 +67,13 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < this.dayCount; i++){
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
+          var newM : Money = m;
+          newM.date = this.dailyFinance[i].date;
+          newM.day = this.dailyFinance[i].day;
+
           this.dailyFinance[i].money.push(m);
+          //console.log(this.dailyFinance[i].date + '   ' + m.date);
+          //console.log(newM);
         }
       }
     }

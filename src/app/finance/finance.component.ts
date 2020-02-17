@@ -47,6 +47,7 @@ export class FinanceComponent implements OnInit {
           if(this.dailyFinance[i].money[j].isClone){
             this.dailyFinance[i].money.splice(j,1);
           }
+          j--;
         }
       }
       

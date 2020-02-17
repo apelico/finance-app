@@ -41,6 +41,13 @@ export class FinanceComponent implements OnInit {
   resetList(){
     for(var i = 0; i < this.dayCount; i++){
       this.dailyFinance[i].change = 0;
+      if(this.dailyFinance[i].money.length > 0){
+        for(var j = 0; j < this.dailyFinance[i].money.length;j++){
+          if(this.dailyFinance[i].money[i].isClone){
+            this.dailyFinance[i].money.splice(j,1);
+          }
+        }
+      }
     }
   }
 
@@ -53,6 +60,7 @@ export class FinanceComponent implements OnInit {
       }else{
         this.dailyFinance[i].amount = this.dailyFinance[i-1].amount;
       }
+
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
           if(this.dailyFinance[i].money[j].isMonthly){
@@ -72,12 +80,18 @@ export class FinanceComponent implements OnInit {
   }
 
   addMonthly(m : Money){
+    if(m.isClone){
+      return;
+    }
+
     for(var i = 0; i < this.dayCount; i++){
     this.dailyFinance[i].reoccuring = 0;
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
-          this.dailyFinance[i].amount += Number(m.amount);
-          this.dailyFinance[i].change += Number(m.amount);
+          var newM : Money = m;
+          newM.isClone = true;
+          newM.date = this.getDate(i);
+          this.dailyFinance[i].money.push(newM);
         }
       }
     }

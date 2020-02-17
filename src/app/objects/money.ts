@@ -6,6 +6,7 @@ export class Money {
   date : string = '';
   day : number;
   amount : number = 0;
+  isClone : boolean = false;
 
   isWeekly = false;
   isBiWeekly = false;

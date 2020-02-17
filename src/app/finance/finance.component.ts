@@ -68,13 +68,13 @@ export class FinanceComponent implements OnInit {
 
           if(this.dailyFinance[i].money[j].isMonthly){
             this.addMonthly(this.dailyFinance[i].money[j]);
-          }/*
+          }
           if(this.dailyFinance[i].money[j].isWeekly){
             this.addWeekly(this.dailyFinance[i].money[j],i);
           }
           if(this.dailyFinance[i].money[j].isBiWeekly){
             this.addBiWeekly(this.dailyFinance[i].money[j],i);
-          }*/
+          }
 
           this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
           this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
@@ -91,9 +91,11 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < this.dayCount; i++){
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
-          var newM : Money = m;
-          console.log(this.dailyFinance[i]);
-          console.log(newM);
+          var newM : Money = new Money();
+          newM.clone(m);
+          newM.date = this.dailyFinance[i].date;
+          newM.day = m.day;
+          this.dailyFinance[i].money.push(newM);
         }
       }
     }
@@ -102,8 +104,11 @@ export class FinanceComponent implements OnInit {
   addWeekly(m : Money, start : number){
     var index : number = 7;
     while(this.dailyFinance[start + index] != null){
-      this.dailyFinance[start + index].amount += Number(m.amount);
-      this.dailyFinance[start + index].change += Number(m.amount);
+      var newM : Money = new Money();
+      newM.clone(m);
+      newM.date = this.dailyFinance[start + index].date;
+      newM.day = this.dailyFinance[start + index].day;
+      this.dailyFinance[start + index].money.push(newM);
       index += 7;
     }
   }
@@ -111,8 +116,11 @@ export class FinanceComponent implements OnInit {
   addBiWeekly(m : Money, start : number){
     var index : number = 14;
     while(this.dailyFinance[start + index] != null){
-      this.dailyFinance[start + index].amount += Number(m.amount);
-      this.dailyFinance[start + index].change += Number(m.amount);
+      var newM : Money = new Money();
+      newM.clone(m);
+      newM.date = this.dailyFinance[start + index].date;
+      newM.day = this.dailyFinance[start + index].day;
+      this.dailyFinance[start + index].money.push(newM);
       index += 14;
     }
   }

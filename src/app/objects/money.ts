@@ -11,4 +11,10 @@ export class Money {
   isWeekly = false;
   isBiWeekly = false;
   isMonthly = false;
+
+  clone(m : Money){
+    this.name = m.name;
+    this.amount = m.amount;
+    this.isClone = true;
+  }
 }

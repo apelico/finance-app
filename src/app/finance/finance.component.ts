@@ -46,8 +46,8 @@ export class FinanceComponent implements OnInit {
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
           if(this.dailyFinance[i].money[j].isClone){
             this.dailyFinance[i].money.splice(j,1);
+            j--
           }
-          j--;
         }
       }
       

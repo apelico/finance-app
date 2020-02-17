@@ -41,13 +41,15 @@ export class FinanceComponent implements OnInit {
   resetList(){
     for(var i = 0; i < this.dayCount; i++){
       this.dailyFinance[i].change = 0;
+
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
-          if(this.dailyFinance[i].money[i].isClone){
+          if(this.dailyFinance[i].money[j].isClone){
             this.dailyFinance[i].money.splice(j,1);
           }
         }
       }
+      
     }
   }
 
@@ -63,15 +65,17 @@ export class FinanceComponent implements OnInit {
 
       if(this.dailyFinance[i].money.length > 0){
         for(var j = 0; j < this.dailyFinance[i].money.length;j++){
+
           if(this.dailyFinance[i].money[j].isMonthly){
             this.addMonthly(this.dailyFinance[i].money[j]);
-          }
+          }/*
           if(this.dailyFinance[i].money[j].isWeekly){
             this.addWeekly(this.dailyFinance[i].money[j],i);
           }
           if(this.dailyFinance[i].money[j].isBiWeekly){
             this.addBiWeekly(this.dailyFinance[i].money[j],i);
-          }
+          }*/
+
           this.dailyFinance[i].amount += Number(this.dailyFinance[i].money[j].amount);
           this.dailyFinance[i].change += Number(this.dailyFinance[i].money[j].amount);
         }
@@ -85,13 +89,11 @@ export class FinanceComponent implements OnInit {
     }
 
     for(var i = 0; i < this.dayCount; i++){
-    this.dailyFinance[i].reoccuring = 0;
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
           var newM : Money = m;
-          newM.isClone = true;
-          newM.date = this.getDate(i);
-          this.dailyFinance[i].money.push(newM);
+          console.log(this.dailyFinance[i]);
+          console.log(newM);
         }
       }
     }

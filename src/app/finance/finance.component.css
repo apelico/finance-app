@@ -1,3 +1,13 @@
 .day{
   display:inline-flex;
 }
+
+.income{
+  float:left;
+  width:50%;
+}
+
+.bill{
+  float:right;
+  width:50%;
+}

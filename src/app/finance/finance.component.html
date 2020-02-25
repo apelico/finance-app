@@ -1,12 +1,28 @@
   <div>
-    <input type="button" (click)='addIncome()' value='Add Finance'>
-    <input type="button" (click)='addBill()' value='Add Bill'>
+    <input type="button" (click)='createIncome()' value='Add Finance'>
+  </div>
+  <div>
+    <input type="button" (click)='createBill()' value='Add Bill'>
   </div>
 
 <div class='finance'>
-  <div class='income' *ngFor="let income of finance">
-      <app-finance-item [finance]=income></app-finance-item>
+  <div class='income'>
+    <div *ngFor="let income of finance">
+      <div *ngIf='income.isIncome'>
+        <app-finance-item [finance]=income></app-finance-item>
+      </div>
+    </div>
   </div>
+
+  <div class='bill'>
+    <div *ngFor="let bill of finance">
+      <div *ngIf='bill.isBill'>
+        <app-finance-item [finance]=bill></app-finance-item>
+      </div>
+    </div>
+  </div>
+
+  <div style='clear:both'></div>
 </div>
   
   <div class='day' *ngFor="let day of days">

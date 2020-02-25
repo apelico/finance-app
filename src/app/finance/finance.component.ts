@@ -38,24 +38,7 @@ export class FinanceComponent implements OnInit {
     }
   }
 
-  resetList(){
-    for(var i = 0; i < this.dayCount; i++){
-      this.dailyFinance[i].change = 0;
-
-      if(this.dailyFinance[i].money.length > 0){
-        for(var j = 0; j < this.dailyFinance[i].money.length;j++){
-          if(this.dailyFinance[i].money[j].isClone){
-            this.dailyFinance[i].money.splice(j,1);
-            j--
-          }
-        }
-      }
-      
-    }
-  }
-
   updateList(){   
-  this.resetList();
     for(var i = 0; i < this.dayCount; i++)
     {
       if(i == 0) {
@@ -85,21 +68,36 @@ export class FinanceComponent implements OnInit {
   }
 
   addMonthly(m : Money){
-    if(m.isClone){
-      return;
-    }
-
     for(var i = 0; i < this.dayCount; i++){
       if(this.dailyFinance[i].date != m.date){
         if(this.dailyFinance[i].day == m.day){
-          var newM : Money = new Money();
-          newM.clone(m);
-          newM.date = this.dailyFinance[i].date;
-          newM.day = m.day;
-          this.dailyFinance[i].money.push(newM);
+          if(!this.isFinanceDuplicate(i,m)){
+            var newM : Money = new Money();
+            newM.clone(m);
+            newM.date = this.dailyFinance[i].date;
+            newM.day = m.day;
+            this.dailyFinance[i].money.push(newM);
+          }
         }
       }
     }
+  }
+
+  isFinanceDuplicate(i : number, m : Money){
+    for(var x = 0; x < this.dailyFinance[i].money.length;x++)
+    {
+      if(this.dailyFinance[i].money[x].isClone){
+        this.dailyFinance[i].money[x].clone(m);
+        return true;
+      }
+
+      if(this.dailyFinance[i].money[x].name == m.name)
+      {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   addWeekly(m : Money, start : number){

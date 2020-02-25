@@ -14,6 +14,4 @@ export class Finance {
 
 
   money : Money[] = [];
-  bill : Bill[] = [];
-  income : Income[] = [];
 }

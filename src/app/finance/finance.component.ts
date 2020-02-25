@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Day } from '../objects/day';
+import { Finance } from '../objects/finance';
 
 @Component({
   selector: 'app-finance',
@@ -8,6 +9,7 @@ import { Day } from '../objects/day';
   styleUrls: ['./finance.component.css']
 })
 export class FinanceComponent implements OnInit {
+  finance : Finance[] = [];
   days : Day[] = [];
   dayCount : number = 90;
 
@@ -21,6 +23,14 @@ export class FinanceComponent implements OnInit {
     for(var i = 0; i < this.dayCount; i++){
       this.days.push(new Day());
     }
+  }
+
+  createIncome(){
+    var i = Income
+  }
+
+  createBill(){
+
   }
 
 }

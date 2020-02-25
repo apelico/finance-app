@@ -1,6 +1,4 @@
 export class Finance {
-  index : number;
-
   name : string = 'Name';
   date : string = '';
   day : number;

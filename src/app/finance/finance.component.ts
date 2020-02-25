@@ -28,14 +28,11 @@ export class FinanceComponent implements OnInit {
   createIncome(){
     var i = new Finance();
     i.isIncome = true;
-    i.index = this.finance.length;
     this.finance.push(i);
   }
 
   createBill(){
     var i : Finance = new Finance();
-    i.isBill = true;
-    i.index = this.finance.length;
     this.finance.push(i);
   }
 

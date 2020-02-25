@@ -33,6 +33,7 @@ export class FinanceComponent implements OnInit {
 
   createBill(){
     var i : Finance = new Finance();
+    i.isBill = true;
     this.finance.push(i);
   }
 

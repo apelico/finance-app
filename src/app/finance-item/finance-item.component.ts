@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Finance } from '../objects/finance';
 
 @Component({
@@ -7,11 +7,17 @@ import { Finance } from '../objects/finance';
   styleUrls: ['./finance-item.component.css']
 })
 export class FinanceItemComponent implements OnInit {
+  @Input() index : number;
   @Input() finance : Finance;
+  @Output() remove : Finance = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  removeFinance(){
+    this.remove.emit(this.index);
   }
 
 }

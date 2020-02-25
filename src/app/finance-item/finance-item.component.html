@@ -1,9 +1,13 @@
 <div class='income' *ngIf='finance.isIncome'>
   <div class='delete'>
-    <input class='button' type="button" value="X" (click)='removeBill()'>
+    <input class='button' type="button" value="X" (click)='removeFinance()'>
   </div>
     <div>
       <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+    </div>
+
+    <div>
+      <input type="date" ngModel #date="ngModel" (keyup)="updateDate(date.value)" placeholder="${{finance.date}}">
     </div>
 
     <div>
@@ -13,7 +17,7 @@
 
 <div class='bill' *ngIf='finance.isBill'>
   <div class='delete'>
-    <input class='button' type="button" value="X" (click)='removeBill()'>
+    <input class='button' type="button" value="X" (click)='removeFinance()'>
   </div>
     <div>
       <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">

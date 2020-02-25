@@ -1,8 +1,3 @@
-<div class='container'>
-    <input type="number" (keyup)="updateIncome(income.value)" #income placeholder='Current Cash' (keyup.enter)="setIncome(income.value)">
-  <hr>
-
-    <div class='day' *ngFor="let daily of dailyFinance">
-      <app-day-item (update)="updateDay($event)" [finance]=daily ></app-day-item>
+  <div class='day' *ngFor="let day of days">
+      <app-day-item (day)=day></app-day-item>
   </div>
-</div>

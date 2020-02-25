@@ -1,5 +1,3 @@
 .day{
-  padding-bottom:5px;
-  font-weight: bold;
+  display:inline-flex;
 }
-

@@ -6,12 +6,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FinanceComponent } from './finance/finance.component';
 import { DayItemComponent } from './day-item/day-item.component';
-import { FinanceItemComponent } from './finance-item/finance-item.component';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, FinanceComponent, DayItemComponent, FinanceItemComponent],
+  declarations: [ AppComponent, FinanceComponent, DayItemComponent],
   bootstrap:    [ AppComponent ],
   providers: []
 })

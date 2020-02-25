@@ -1,8 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Finance } from '../objects/finance';
-
-import {NgForm} from '@angular/forms';
-import { Money } from '../objects/money';
+import { Component, OnInit, Input } from '@angular/core';
+import { Day } from '../objects/day';
 
 @Component({
   selector: 'app-day-item',
@@ -10,30 +7,11 @@ import { Money } from '../objects/money';
   styleUrls: ['./day-item.component.css']
 })
 export class DayItemComponent implements OnInit {
-  @Input() finance : Finance;
-  @Output() update : Finance = new EventEmitter<Money>();
+  @Input() day : Day;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  addFinance() {
-    var money : Money = new Money();
-    money.date = this.finance.date;
-    money.day = this.finance.day;
-    this.finance.money.push(money);
-  }
-
-  updateFinance(money : Money){
-    this.finance.money[money.id] = money;
-    this.update.emit(this.finance);
-  }
-
-  removeFinance(i : number){
-    this.finance.money.splice(i, 1);
-    this.update.emit(this.finance);
   }
 
 }

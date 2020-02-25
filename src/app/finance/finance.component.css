@@ -4,10 +4,12 @@
 
 .income{
   float:left;
-  width:50%;
+  width:49%;
+  border:black solid 1px;
 }
 
 .bill{
   float:right;
   width:50%;
+  border:black solid 1px;
 }

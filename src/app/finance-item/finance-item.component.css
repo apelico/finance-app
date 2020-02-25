@@ -1,0 +1,20 @@
+.income{
+  border:black solid 1px;
+  width:200px;
+}
+
+.bill{
+  border:black solid 1px;
+  width:200px;
+}
+
+.button{
+  float:right;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.delete{
+  width:200px;
+  height:20px;
+}

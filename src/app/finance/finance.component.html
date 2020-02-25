@@ -7,6 +7,7 @@
 
 <div class='finance'>
   <div class='income'>
+    <div style='text-align:center'>Income</div>
     <div *ngFor="let income of finance">
       <div *ngIf='income.isIncome'>
         <app-finance-item [finance]=income></app-finance-item>
@@ -15,6 +16,7 @@
   </div>
 
   <div class='bill'>
+    <div style='text-align:center'>Bill</div>
     <div *ngFor="let bill of finance">
       <div *ngIf='bill.isBill'>
         <app-finance-item [finance]=bill></app-finance-item>

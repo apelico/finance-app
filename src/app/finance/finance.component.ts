@@ -57,7 +57,11 @@ export class FinanceComponent implements OnInit {
         this.days[0].amount = 0;
       }
       for (var x = 0; x < this.finance.length; x++) {
-        if (this.finance[x].day == this.days[i].day) {
+        if (this.finance[x].day == this.days[i].day || this.finance[x].nextDay == this.days[i].day) {
+          if(this.finance[x].isWeekly){
+            this.finance[x].nextDay = this.days[i].day + 7;
+          }
+
           if (this.finance[x].isIncome) {
             this.days[i].amount += Number(this.finance[x].amount);
           }

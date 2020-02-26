@@ -4,6 +4,7 @@ export class Finance {
   name : string = 'Name';
   date : string = '';
   day : number;
+  nextDay : number;
   month : number;
   amount : number = 0;
 

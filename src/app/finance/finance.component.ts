@@ -23,6 +23,7 @@ export class FinanceComponent implements OnInit {
     for (var i = 0; i < this.dayCount; i++) {
       var d: Day = new Day();
       d.day = this.getDay(i);
+      d.month = this.getMonth(i);
       this.days.push(d);
     }
   }
@@ -59,9 +60,14 @@ export class FinanceComponent implements OnInit {
         this.days[0].amount = 0;
       }
       for (var x = 0; x < this.finance.length; x++) {
-        if (this.finance[x].day == this.days[i].day || this.finance[x].nextDay == this.days[i].day) {
+        if ((this.finance[x].day == this.days[i].day && this.finance[x].month == this.days[i].month) || this.finance[x].nextDay == this.days[i].day) {
+
           if(this.finance[x].isWeekly){
             this.finance[x].nextDay = this.getFutureDate(this.days[i].day,7);
+          }else if(this.finance[x].isBiWeekly){
+            this.finance[x].nextDay = this.getFutureDate(this.days[i].day,14);
+          }else if(this.finance[x].isMonthly){
+            this.finance[x].nextDay = this.getFutureMonth(this.days[i].day);
           }
 
           if (this.finance[x].isIncome) {
@@ -76,10 +82,17 @@ export class FinanceComponent implements OnInit {
     }
   }
 
+  getFutureMonth(start: number){
+    var d = new Date();
+    d.setDate(start);
+    d.setMonth(d.getMonth() + 1);
+    return d.getDate();
+  }
+
   getFutureDate(start : number , count : number){
     var d = new Date();
     d.setDate(start);
-    d.setDate(d.getDate() + 7);
+    d.setDate(d.getDate() + count);
     return d.getDate();
   }
 
@@ -91,5 +104,12 @@ export class FinanceComponent implements OnInit {
       .toString()
       .padStart(2, 0);
     return newDay;
+  }
+
+  getMonth(day: number) {
+    var d = new Date();
+    d.setDate(d.getDate() + day);
+    var newMonth = (d.getMonth() + 1).toString().padStart(2, 0);
+    return newMonth;
   }
 }

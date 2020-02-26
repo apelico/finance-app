@@ -38,6 +38,7 @@ export class FinanceComponent implements OnInit {
   createBill() {
     var i: Finance = new Finance();
     i.isBill = true;
+    i.isMonthly= true;
     this.finance.push(i);
     this.updateDays();
   }

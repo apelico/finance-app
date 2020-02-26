@@ -1,6 +1,6 @@
 export class Day {
   date: string;
-  day: number;
+  day: number = 0;
   month: number;
   
   amount: number;

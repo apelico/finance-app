@@ -22,7 +22,9 @@ export class FinanceComponent implements OnInit {
 
   createDays(){
     for(var i = 0; i < this.dayCount; i++){
-      this.days.push(new Day());
+      var d : Day = new Day();
+      d.day = this.getDay(i);
+      this.days.push(d);
     }
   }
 
@@ -56,6 +58,13 @@ export class FinanceComponent implements OnInit {
         }
       }
     }
+  }
+
+  getDay(day : number){
+    var d = new Date();
+    d.setDate(d.getDate() + day);
+    var newDay = d.getDate().toString().padStart(2,0);
+    return newDay;
   }
 
 }

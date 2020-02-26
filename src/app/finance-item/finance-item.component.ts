@@ -10,6 +10,7 @@ export class FinanceItemComponent implements OnInit {
   @Input() index : number;
   @Input() finance : Finance;
   @Output() remove : Finance = new EventEmitter<number>();
+  @Output() update : Finance = new EventEmitter<Finance>();
 
   constructor() { }
 

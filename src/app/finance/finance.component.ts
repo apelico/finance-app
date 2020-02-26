@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { Day } from '../objects/day';
 import { Finance } from '../objects/finance';
@@ -12,6 +12,7 @@ export class FinanceComponent implements OnInit {
   finance : Finance[] = [];
   days : Day[] = [];
   dayCount : number = 90;
+
 
   constructor() { }
 
@@ -39,6 +40,11 @@ export class FinanceComponent implements OnInit {
 
   removeFinance(index : number){
     this.finance.splice(index,1);
+  }
+
+  
+  updateFinance(finance : Finance){
+    this.finance[finance.index] = finance;
   }
 
 }

@@ -10,7 +10,7 @@
     <div style='text-align:center'>Income</div>
     <div *ngFor="let income of finance; let i = index">
       <div *ngIf='income.isIncome'>
-        <app-finance-item [finance]=income [index]=i (remove)="removeFinance($event)"></app-finance-item>
+        <app-finance-item (update)="updateFinance($event)" [finance]=income [index]=i (remove)="removeFinance($event)"></app-finance-item>
       </div>
     </div>
   </div>

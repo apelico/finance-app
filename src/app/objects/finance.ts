@@ -6,6 +6,8 @@ export class Finance {
   amount : number = 0;
 
   isMonthly = false;
+  isWeekly = false;
+  isBiWeekly = false;
 
   isIncome = false;
   isBill = false;

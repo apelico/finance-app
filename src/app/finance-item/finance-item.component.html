@@ -14,6 +14,21 @@
   <div>
     <input type="number" #amount ngModel #amount="ngModel" (keyup)="updateAmount(amount.value)" placeholder="${{finance.amount}}">
   </div>
+
+  <div>
+        Weekly
+    <input type="checkbox" #weekly [(ngModel)]="isWeekly" (change)="checkWeekly(isWeekly?'A':'B')" name="isWeekly">
+  </div>
+
+    <div>
+        BiWeekly
+    <input type="checkbox" #biweekly [(ngModel)]="isBiWeekly" (change)="checkBiWeekly(isMonthly?'A':'B')" name="isBiWeekly">
+    </div>
+
+    <div>
+        Montly
+    <input type="checkbox" #monthly [(ngModel)]="isMonthly" (change)="checkMonthly(isMonthly?'A':'B')" name="isMonthly">
+    </div>
 </div>
 
 <div class='bill' *ngIf='finance.isBill'>

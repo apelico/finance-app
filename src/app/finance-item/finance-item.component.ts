@@ -9,12 +9,13 @@ import { Finance } from '../objects/finance';
 export class FinanceItemComponent implements OnInit {
   @Input() index : number;
   @Input() finance : Finance;
-  @Output() remove : Finance = new EventEmitter<number>();
-  @Output() update : Finance = new EventEmitter<Finance>();
+  @Output() remove : EventEmitter<number> = new EventEmitter<number>();
+  @Output() update : EventEmitter<Finance> = new EventEmitter<Finance>();
 
   constructor() { }
 
   ngOnInit() {
+    this.finance.index = this.index;
   }
 
   removeFinance(){
@@ -31,7 +32,7 @@ export class FinanceItemComponent implements OnInit {
   {
     var d : Date = new Date(text);
     this.finance.day[0] = (d.getDate() + 1);
-    this.finance.date = text;
+    this.finance.date = String(text);
     this.update.emit(this.finance);
   }
 

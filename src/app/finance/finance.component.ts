@@ -45,6 +45,7 @@ export class FinanceComponent implements OnInit {
   
   updateFinance(finance : Finance){
     this.finance[finance.index] = finance;
+    console.log(this.finance);
   }
 
 }

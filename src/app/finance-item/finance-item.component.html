@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <input type="date" ngModel #date="ngModel" (keyup)="updateDate(date.value)" placeholder="${{finance.date}}">
+      <input type="date" #date ngModel #date="ngModel" (keyup)="updateDate(date.value)" placeholder="${{finance.date}}">
     </div>
 
     <div>

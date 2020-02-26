@@ -21,4 +21,25 @@ export class FinanceItemComponent implements OnInit {
     this.remove.emit(this.index);
   }
 
+  updateName(text : string)
+  {
+    this.finance.name = text;
+    this.update.emit(this.finance);
+  }
+
+  updateDate(text : string)
+  {
+    console.log(text);
+    this.finance.date = text;
+    this.update.emit(this.finance);
+  }
+
+
+  updateAmount(text : number)
+  {
+    this.finance.amount = text;
+    this.update.emit(this.finance);
+  }
+
+
 }

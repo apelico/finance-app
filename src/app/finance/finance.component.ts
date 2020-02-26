@@ -22,7 +22,7 @@ export class FinanceComponent implements OnInit {
   createDays() {
     for (var i = 0; i < this.dayCount; i++) {
       var d: Day = new Day();
-      d.day[0] = this.getDay(i);
+      d.day = this.getDay(i);
       this.days.push(d);
     }
   }
@@ -55,15 +55,13 @@ export class FinanceComponent implements OnInit {
         this.days[i].amount = this.days[i - 1].amount;
       }
       for (var x = 0; x < this.finance.length; x++) {
-        for (var j = 0; j < this.finance[x].day.length; j++) {
-          if (this.finance[x].day == this.days[i].day[j]) {
-            if (this.finance[x].isIncome) {
-              this.days[i].amount += Number(this.finance[x].amount);
-            }
+        if (this.finance[x].day == this.days[i].day) {
+          if (this.finance[x].isIncome) {
+            this.days[i].amount += Number(this.finance[x].amount);
+          }
 
-            if (this.finance[x].isBill) {
-              this.days[i].amount -= Number(this.finance[x].amount);
-            }
+          if (this.finance[x].isBill) {
+            this.days[i].amount -= Number(this.finance[x].amount);
           }
         }
       }

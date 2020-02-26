@@ -16,6 +16,7 @@ export class FinanceItemComponent implements OnInit {
 
   ngOnInit() {
     this.finance.index = this.index;
+    console.log(this.index);
   }
 
   removeFinance(){

@@ -28,5 +28,9 @@
 </div>
   
   <div class='day' *ngFor="let day of days">
-      <app-day-item [day]=day></app-day-item>
+    <div *ngFor="let month of fakeArray">
+      <div class="month" *ngIf='month == day.month'>
+        <app-day-item [day]=day></app-day-item>
+      </div>
+    </div>
   </div>

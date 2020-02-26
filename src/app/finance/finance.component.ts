@@ -12,6 +12,7 @@ export class FinanceComponent implements OnInit {
   finance: Finance[] = [];
   days: Day[] = [];
   dayCount: number = 90;
+  fakeArray = new Array(12);
 
   constructor() {}
 

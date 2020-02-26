@@ -2,6 +2,10 @@
   display:inline-flex;
 }
 
+.month{
+  display:block;
+}
+
 .income{
   float:left;
   width:49%;

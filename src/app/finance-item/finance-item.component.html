@@ -2,28 +2,34 @@
   <div class='delete'>
     <input class='button' type="button" value="X" (click)='removeFinance()'>
   </div>
-    <div>
-      <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
-    </div>
 
-    <div>
-      <input type="date" #date ngModel #date="ngModel" (keyup)="updateDate(date.value)" placeholder="${{finance.date}}">
-    </div>
+  <div>
+    <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+  </div>
 
-    <div>
-      <input type="number" #amount ngModel #amount="ngModel" (keyup)="updateAmount(amount.value)" placeholder="${{finance.amount}}">
-    </div>
+  <div>
+    <input type="date" #date ngModel #date="ngModel" (change)="updateDate(date.value)" placeholder="${{finance.date}}">
+  </div>
+
+  <div>
+    <input type="number" #amount ngModel #amount="ngModel" (keyup)="updateAmount(amount.value)" placeholder="${{finance.amount}}">
+  </div>
 </div>
 
 <div class='bill' *ngIf='finance.isBill'>
   <div class='delete'>
     <input class='button' type="button" value="X" (click)='removeFinance()'>
   </div>
-    <div>
-      <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
-    </div>
 
-    <div>
-      <input type="number" #amount ngModel #amount="ngModel" (keyup)="updateAmount(amount.value)" placeholder="${{finance.amount}}">
-    </div>
+  <div>
+    <input type="text" #name (keyup)="updateName(name.value)" placeholder="{{finance.name}}" ngModel #name="ngModel">
+  </div>
+
+  <div>
+    <input type="date" #date ngModel #date="ngModel" (change)="updateDate(date.value)" placeholder="${{finance.date}}">
+  </div>
+
+  <div>
+    <input type="number" #amount ngModel #amount="ngModel" (keyup)="updateAmount(amount.value)" placeholder="${{finance.amount}}">
+  </div>
 </div>

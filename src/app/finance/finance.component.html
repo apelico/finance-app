@@ -19,7 +19,7 @@
     <div style='text-align:center'>Bill</div>
     <div *ngFor="let bill of finance; let i = index">
       <div *ngIf='bill.isBill'>
-        <app-finance-item [finance]=bill [index]=i (remove)="removeFinance($event)"></app-finance-item>
+        <app-finance-item (update)="updateFinance($event)" [finance]=bill [index]=i (remove)="removeFinance($event)"></app-finance-item>
       </div>
     </div>
   </div>

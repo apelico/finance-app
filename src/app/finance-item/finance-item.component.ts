@@ -58,6 +58,7 @@ export class FinanceItemComponent implements OnInit {
      this.finance.isWeekly = true;
    }else{
      this.finance.isWeekly = false;
+     this.finance.nextDay = -1;
    }
    this.update.emit(this.finance);
   }

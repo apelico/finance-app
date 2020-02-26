@@ -31,20 +31,22 @@ export class FinanceComponent implements OnInit {
     var i = new Finance();
     i.isIncome = true;
     this.finance.push(i);
+    this.updateDays();
   }
 
   createBill() {
     var i: Finance = new Finance();
     i.isBill = true;
     this.finance.push(i);
+    this.updateDays();
   }
 
   removeFinance(index: number) {
     this.finance.splice(index, 1);
+    this.updateDays();
   }
 
   updateFinance(finance: Finance) {
-    console.log(finance);
     this.finance[finance.index] = finance;
     this.updateDays();
   }
@@ -59,7 +61,7 @@ export class FinanceComponent implements OnInit {
       for (var x = 0; x < this.finance.length; x++) {
         if (this.finance[x].day == this.days[i].day || this.finance[x].nextDay == this.days[i].day) {
           if(this.finance[x].isWeekly){
-            this.finance[x].nextDay = this.days[i].day + 7;
+            this.finance[x].nextDay = this.getFutureDate(this.days[i].day,7);
           }
 
           if (this.finance[x].isIncome) {
@@ -69,11 +71,16 @@ export class FinanceComponent implements OnInit {
           if (this.finance[x].isBill) {
             this.days[i].amount -= Number(this.finance[x].amount);
           }
-
-          console.log(this.days[i]);
         }
       }
     }
+  }
+
+  getFutureDate(start : number , count : number){
+    var d = new Date();
+    d.setDate(start);
+    d.setDate(d.getDate() + 7);
+    return d.getDate();
   }
 
   getDay(day: number) {

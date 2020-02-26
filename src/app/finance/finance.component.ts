@@ -48,13 +48,15 @@ export class FinanceComponent implements OnInit {
   updateFinance(finance : Finance){
     this.finance[finance.index] = finance;
     console.log(this.finance);
+    this.updateDays();
   }
 
   updateDays(){
-    for(var i = 0; i < this.dayCount;i++){
+    for(var i = 1; i < this.dayCount;i++){
       for(var x = 0; x < this.finance.length;x++){
+        this.days[i].amount = this.days[i-1].amount;
         if(this.finance[x].day == this.days[i].day){
-          
+          this.days[i].amount += Number(this.finance[x].amount);
         }
       }
     }

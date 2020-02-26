@@ -12,6 +12,7 @@ export class DayItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

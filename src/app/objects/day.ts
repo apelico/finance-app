@@ -3,5 +3,5 @@ export class Day {
   day: number = 0;
   month: number;
   
-  amount: number;
+  amount: number = 0;
 }

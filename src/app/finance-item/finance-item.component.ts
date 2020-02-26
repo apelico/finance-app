@@ -27,8 +27,10 @@ export class FinanceItemComponent implements OnInit {
     this.update.emit(this.finance);
   }
 
-  updateDate(text : string)
+  updateDate(text : Date)
   {
+    var d : Date = new Date(text);
+    this.finance.day = (d.getDate() + 1);
     this.finance.date = text;
     this.update.emit(this.finance);
   }

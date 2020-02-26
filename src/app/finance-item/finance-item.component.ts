@@ -30,7 +30,7 @@ export class FinanceItemComponent implements OnInit {
   updateDate(text : Date)
   {
     var d : Date = new Date(text);
-    this.finance.day = (d.getDate() + 1);
+    this.finance.day[0] = (d.getDate() + 1);
     this.finance.date = text;
     this.update.emit(this.finance);
   }
@@ -40,6 +40,37 @@ export class FinanceItemComponent implements OnInit {
   {
     this.finance.amount = text;
     this.update.emit(this.finance);
+  }
+
+  checkMonthly(event: any){
+   if(event == 'A'){
+     this.finance.isMonthly = true;
+   }else{
+     this.finance.isMonthly = false;
+   }
+   this.update.emit(this.finance);
+  }
+
+  checkWeekly(event: any){
+   if(event == 'A'){
+     this.finance.isWeekly = true;
+      for(var i = 1; i < 10; i++){
+       this.finance.day[i] = (this.finance.day + 7);
+       console.log(this.finance.day);
+     }
+   }else{
+     this.finance.isWeekly = false;
+   }
+   this.update.emit(this.finance);
+  }
+
+  checkBiWeekly(event: any){
+   if(event == 'A'){
+     this.finance.isBiWeekly = true;
+   }else{
+     this.finance.isBiWeekly = false;
+   }
+   this.update.emit(this.finance);
   }
 
 
